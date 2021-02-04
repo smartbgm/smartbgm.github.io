@@ -16,7 +16,7 @@
     #map_id {position: absolute; z-index: 0;}
     .all_wrapper {padding: 20px;}
     .search_wrap {position: relative; width: 100%; height: 33px;}
-    .search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, 돋움, sans-serif; font-size: 15px; margin: 0px; padding: 0px;}
+    .search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, '돋움', sans-serif; font-size: 15px; margin: 0px; padding: 0px;}
     #menu_wrap {
         position: absolute;
         top: 0;
@@ -41,9 +41,20 @@
     .justify-content-between {justify-content: space-between!important;}
     
     span.search_icon {
-    background: url("/search-icon.png") ;
+    background: url("/image/search-icon.png") ;
     background-size: 25px;
     }
+    
+    .wrapper {position: relative; width:162px;}
+    .wrapper, .wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+    
+    #category {position: relative;top:15px;left:0;border-radius: 10px; border:1px solid rgba(0, 0, 0, 0);box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);background: rgba(255, 255, 255, 0.8); overflow: hidden;z-index: 2; margin-bottom: 10px;}
+    #category li {font-weight: 600; font-size: 12px; color:rgba(0, 0, 0, 0.7); margin-top:0;float:left;list-style: none;width:80px;border-right:1px solid #acacac;padding:6px 0px 2px 0px;text-align: center; cursor: pointer;}
+    
+    #category li span {display: block;margin:0 auto 3px;width:25px;height: 25px;}
+    #category li .category_hos { background:url(/static/main/image/hospital-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+    #category li .gps { background:url(/image/location_on.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+
 
     </style>
 </head>
@@ -64,18 +75,33 @@
             </div>
         </div>
     </div>
+    
+    <div class="wrapper">
+        <ul id="category">
+            <li id="hospital"> <span class="category_hos" title="코로나19 진료소"></span>----</li>
+            <li> <span class="gps" title="현재 위치 추적"></span>현재 위치로</li>
+        </ul>
+    </div>
 </div>
 
-<div class="button" style="position:absolute; margin-top:0px;margin-left: 5%;">
-    <button onclick="getInfo()">GET_INFO</button>
-    <button onclick="gps_tracking()">현재 위치로</button>
-</div>
+
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37ea71dcbe66db7d635ad2ee4c246c8e"></script>
 <script>
 //
 // keysearchPlaces() 를 만들어야합!!!
+// GPS 안쓰게 토글도 만들어야지 
+/*
+<div class="button" style="position:absolute; margin-top:0px;margin-left: 5%;">
+    <button onclick="getInfo()">GET_INFO</button>
+    <button onclick="gps_tracking()">현재 위치로</button>
+</div>
+
+*/
+
+
+
 
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
@@ -109,7 +135,7 @@ function gps_check(){
         navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
         console.log(gps_lat,gps_lng)
     } else {
-        console.log("GPS_추적이 불가합니다.");
+        alert("GPS_추적이 불가합니다.");
         gps_use = false;
     }
 }
@@ -137,21 +163,71 @@ function errorHandler(error) {
     gps_use = false;
 }
 
-function gps_tracking(){
+function onClickGPS() {
+    gps_check()
+    changeCategoryClass(this)
     if (gps_use) {
-        map.panTo(new kakao.maps.LatLng(gps_lat,gps_lng));
-        var gps_content = '<div><img class="pulse" style="width:15px;height:15px;" draggable="false" unselectable="on" src="https://ssl.pstatic.net/static/maps/m/pin_rd.png" alt=""></div>';
+        map.panTo(new kakao.maps.LatLng(gps_lat,gps_lng))
+        var gps_content = '<div><img class="pulse" draggable="false" unselectable="on" src="https://ssl.pstatic.net/static/maps/m/pin_rd.png" alt=""></div>';
         var currentOverlay = new kakao.maps.CustomOverlay({
             position: new kakao.maps.LatLng(gps_lat,gps_lng),
             content: gps_content,
-            map: map
-        });
-        currentOverlay.setMap(map);
+        })
+        currentOverlay.setMap(map)
     } else {
-      console.log("접근차단하신 경우 새로고침, 아닌 경우 잠시만 기다려주세요.");
-      gps_check();
+        alert("접근차단하신 경우 새로고침, 아닌 경우 잠시만 기다려주세요.")
+        gps_check()
     }
 }
+
+addCategoryClickEvent()
+
+function addCategoryClickEvent() {
+    var category = document.getElementById('category'),
+        children = category.children
+
+    // category의 하위 항목에 onclick 함수를 할당해줌
+    for (var i=0; i<children.length-1; i++) {
+        children[i].onclick = onClickCategory
+    }
+
+    // gps(나의 위치 찾기)만 따로 함수를 만들어줘서 관리
+    children[children.length-1].onclick = onClickGPS
+}
+
+// 카테고리를 클릭했을 때 호출되는 함수입니다
+function onClickCategory() {
+    var id = this.id,
+        className = this.className
+
+    // category 하위 항목을 선택하면 palce overlay가 꺼짐
+    placeOverlay.setMap(null)
+
+    // 현재 켜져있는 상태였던 걸 한번 더 클릭한 거면 꺼주고, 꺼진 상태였으면 활성화.
+    if (className === 'on') {
+        currCategory = ''
+        changeCategoryClass()
+        removeMarker()
+    } else {
+        currCategory = id
+        changeCategoryClass(this)
+        searchPlaces()
+    }
+}
+
+// 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
+function changeCategoryClass(el) {
+    var category = document.getElementById('category'),
+        children = category.children
+    // 다른 카테고리 하위 목록들은 다 꺼주고
+    for (var i=0; i<children.length; i++ ) { 
+        children[i].className = ''
+    }
+    // 현재 선택된 카테고리만 활성화 해 줍니다.
+    if (el) {
+        el.className = 'on'
+    } 
+} 
 
 function getInfo() {
     var center = map.getCenter(); 
