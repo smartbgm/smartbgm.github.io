@@ -52,10 +52,27 @@
     #category li {font-weight: 600; font-size: 12px; color:rgba(0, 0, 0, 0.7); margin-top:0;float:left;list-style: none;width:80px;border-right:1px solid #acacac;padding:6px 0px 2px 0px;text-align: center; cursor: pointer;}
     
     #category li span {display: block;margin:0 auto 3px;width:25px;height: 25px;}
-    #category li .category_hos { background:url(/static/main/image/hospital-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
+    #category li .category_hos { background:url(/image/hospital-icon.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
     #category li .gps { background:url(/image/location_on.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
-
-
+    
+    .pulse img{ margin: 0px;padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;left: 0px;top: 0px;}
+    .pulse {z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(255, 0, 0);animation: pulse 1.7s infinite;}
+    @-webkit-keyframes pulse {
+        0% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);}
+        70% {-webkit-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+        100% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+    }
+    @keyframes pulse {
+        0% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);
+            box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);}
+        70% {-moz-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);
+            box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
+        100% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+            box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
+    }
+    .gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
+    .gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+    
     </style>
 </head>
 
