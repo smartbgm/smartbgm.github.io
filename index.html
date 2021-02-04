@@ -2,20 +2,81 @@
 <head>
     <meta charset="utf-8">
     <title>HotPlace</title>
+    <style>
+    * {
+      box-sizing: border-box;
+      margin:0;
+    }
+    body {
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+    #map_id {position: absolute; z-index: 0;}
+    .all_wrapper {padding: 20px;}
+    .search_wrap {position: relative; width: 100%; height: 33px;}
+    .search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, 돋움, sans-serif; font-size: 15px; margin: 0px; padding: 0px;}
+    #menu_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 330px;
+        margin: 0;
+        padding: 2px;
+        overflow-y: auto;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 1;
+        font-size: 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+    }
+    #menu_wrap .option{padding: 0 10px; height: 30px;}
+    #menu_wrap .option span{display: block; width:30px; height:30px; margin:0; float:right; }
     
+    .w-100 {width: 100%!important;}
+    .align-items-center {align-items: center!important;}
+    .flex-column {flex-direction: column!important;}
+    .d-flex { display: flex!important}
+    .justify-content-between {justify-content: space-between!important;}
+    
+    span.search_icon {
+    background: url("/search-icon.png") ;
+    background-size: 25px;
+    }
+
+    </style>
 </head>
 
 
 <body>
-<div id="map_id" style="width:1000px;height:1000px;"></div>
-<p style="margin-top:10px;margin-left: 250px;">
+<div id="map_id" style="width:100%;height:100vh;background: url("http://t1.daumcdn.net/mapjsapi/images/bg_tile.png")></div>
+<div class="all_wrapper">
+    <div class="search_wrap">
+        <div id="menu_wrap" class="bg_white">
+            <div class="option w-100 d-flex flex-column align-items-center">
+                
+                <form onsubmit="keysearchPlaces(); return false;" class="d-flex align-items-center justify-content-between w-100">
+                    <input type="text" placeholder="목적지를 검색해주세요" id="keyword" style="border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);">
+                    <span class="search_icon" onclick="keysearchPlaces();"></span>
+                </form>
+                    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:10px;margin-left: 250px;">
     <button onclick="getInfo()">GET_INFO</button>
     <button onclick="gps_tracking()">현재 위치로</button>
-</p>
+</div>
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37ea71dcbe66db7d635ad2ee4c246c8e"></script>
 <script>
+//
+// keysearchPlaces() 를 만들어야합!!!
+
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.39280618768211, 127.11205034960552), // 판교 현백
@@ -30,7 +91,7 @@ map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
     
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.LEFT);
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 
 var gps_use = null; //gps의 사용가능 여부
@@ -46,7 +107,7 @@ function gps_check(){
     if (navigator.geolocation) {
         var options = {timeout:5000, enableHighAccuracy: true};
         navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
-        // console.log(gps_lat,gps_lng)
+        console.log(gps_lat,gps_lng)
     } else {
         console.log("GPS_추적이 불가합니다.");
         gps_use = false;
@@ -93,25 +154,12 @@ function gps_tracking(){
 }
 
 function getInfo() {
-    // 지도의 현재 중심좌표를 얻어옵니다 
     var center = map.getCenter(); 
-    
-    // 지도의 현재 레벨을 얻어옵니다
     var level = map.getLevel();
-    
-    // 지도타입을 얻어옵니다
-    var mapTypeId = map.getMapTypeId(); 
-    
-    // 지도의 현재 영역을 얻어옵니다 
+    var mapTypeId = map.getMapTypeId();
     var bounds = map.getBounds();
-    
-    // 영역의 남서쪽 좌표를 얻어옵니다 
-    var swLatLng = bounds.getSouthWest(); 
-    
-    // 영역의 북동쪽 좌표를 얻어옵니다 
-    var neLatLng = bounds.getNorthEast(); 
-    
-    // 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
+    var swLatLng = bounds.getSouthWest();
+    var neLatLng = bounds.getNorthEast();
     var boundsStr = bounds.toString();
     
     var message = '지도 중심좌표는 위도 ' + center.getLat() + ',\n';
@@ -123,7 +171,25 @@ function getInfo() {
     console.log(message)
     
 }
+ /*
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng;
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    var resultDiv = document.getElementById('result'); 
+    resultDiv.innerHTML = message;
+    
+});
 
+==> addListener : 'click', 'dragend', 'zoom_changed', 'center_changed', 'tilesloaded'
+
+ */
 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
