@@ -8,13 +8,19 @@
           box-sizing: border-box;
           margin:0;
         }
+        
+        /* 전체 Body Style */
         body {
           font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
           font-size: 1rem;
           line-height: 1.5;
           text-align: center;
         }
+        
+        /* 카카오맵 Style */
         #map_id {position: absolute; z-index: 0;}
+        
+        /* 검색창 Style */
         .all_wrapper {padding: 20px;}
         .search_wrap {position: relative; width: 100%; height: 33px;}
         .search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, '돋움', sans-serif; font-size: 15px; margin: 0px; padding: 0px;}
@@ -34,18 +40,15 @@
         }
         #menu_wrap .option{padding: 0 10px; height: 30px;}
         #menu_wrap .option span{display: block; width:24px; height:24px; margin:4; float:right; }
-        
         .w-100 {width: 100%!important;}
         .align-items-center {align-items: center!important;}
         .flex-column {flex-direction: column!important;}
         .d-flex { display: flex!important}
         .justify-content-between {justify-content: space-between!important;}
         
-        span.search_icon {
-        background: url("/image/search-icon.png") ;
-        background-size: 25px;
-        }
+        span.search_icon {background: url("/image/search-icon.png"); background-size: 25px; }
         
+        /* 검색창 아래 아이콘 Style */
         .wrapper {position: relative; width:162px;}
         .wrapper, .wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
         
@@ -56,6 +59,7 @@
         #category li .category_hos { background:url(/image/location_off.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
         #category li .gps { background:url(/image/location_on.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
         
+        /* 현재 위치 pulse Style */
         .pulse img{ margin: 0px;padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;left: 0px;top: 0px;}
         .pulse {z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(255, 0, 0);animation: pulse 1.7s infinite;}
         @-webkit-keyframes pulse {
@@ -71,18 +75,31 @@
             100% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
                 box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
         }
+        /*
         .gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
         .gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-    
+        */
+        
+        /* 화면 전환 시 - menu_wrap 이외에 나머지는 초기 뜨는 화면 조정 관련 */
         @media screen and (max-width: 750px) {
-      .legend img{width:100%;}
-      #menu_wrap{width:100%}
-      .modal-dialog{width:90% !important; padding-top: 10%;}
-      .modal-title{font-size:15px;}
-      .modal-body{font-size:13px;}
-      .feedback{font-size: 12px;}
-      .makerinfo{font-size: 11px;}
-}
+            .legend img{width:100%;}
+            #menu_wrap{width:100%}
+            .modal-dialog{width:90% !important; padding-top: 10%;}
+            .modal-title{font-size:15px;}
+            .modal-body{font-size:13px;}
+            .feedback{font-size: 12px;}
+            .makerinfo{font-size: 11px;}
+        }
+        
+        /* 커스텀 오버레이 관련 Style */
+        .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border: 1px solid #ccc; border-bottom: 2px solid #ddd;background-color:#fff;}
+        .overlay_info:nth-of-type(n) {border:0; box-shadow: 0px 3px 10px #888;}
+        .overlay_info a {display: block; background: #d95050; text-decoration: none; color: #fff; padding:12px 36px 12px 14px; font-size: 14px; border-radius: 6px 6px 0 0}
+        .overlay_info a .close {position: absolute;top: 10px;right: 10px;color: #fff;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+        .overlay_info a .close :hover {cursor: pointer;}
+        .overlay_info .desc {padding:14px;position: relative; min-width: 190px; height: 56px;}
+        .overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 12px; right: 12px; top: 12px; white-space: normal; text-align: left;}
+        .overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png) no-repeat 0 bottom;}
     
     </style>
 </head>
@@ -147,6 +164,9 @@ map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 */
+
+
+
 
 var gps_use = null; //gps의 사용가능 여부
 var gps_lat = null; // 위도
@@ -290,9 +310,8 @@ function getInfo() {
     message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 \n';
     message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 입니다';
     console.log(message)
-    
 }
- /*
+
 // 지도에 클릭 이벤트를 등록합니다
 // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
@@ -303,14 +322,51 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
     message += '경도는 ' + latlng.getLng() + ' 입니다';
     
-    var resultDiv = document.getElementById('result'); 
-    resultDiv.innerHTML = message;
-    
+    console.log(message)
+});
+/*
+==> addListener : 'click', 'dragend', 'zoom_changed', 'center_changed', 'tilesloaded'
+*/
+
+
+
+// 커스텀 오버레이가 표시될 위치입니다 
+var position = new kakao.maps.LatLng(37.40, 127.12);
+
+var overlay_marker = new kakao.maps.Marker({
+    map: map, 
+    position: position
 });
 
-==> addListener : 'click', 'dragend', 'zoom_changed', 'center_changed', 'tilesloaded'
+var content = '<div class="overlay_info">';
+content += '    <a href="https://place.map.kakao.com/17600274" target="_blank">테스트 오버레이<div class="close" onclick="closeOverlay()" title="닫기"></div></a>';
+content += '    <div class="desc">';
+content += '        <span class="address">내용 넣어야지</span>';
+content += '    </div>';
+content += '</div>';
 
- */
+
+// 마커 위에 커스텀오버레이를 표시합니다
+// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+var overlay = new kakao.maps.CustomOverlay({
+    content: content,
+    map: map,
+    position: overlay_marker.getPosition(),
+    xAnchor: 0.5, // 커스텀 오버레이의 x축 위치입니다. 1에 가까울수록 왼쪽에 위치합니다. 기본값은 0.5 입니다
+    yAnchor: 1.3 // 커스텀 오버레이의 y축 위치입니다. 1에 가까울수록 위쪽에 위치합니다. 기본값은 0.5 입니다
+});
+
+
+// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+kakao.maps.event.addListener(overlay_marker, 'click', function() {
+    overlay.setMap(map);
+});
+
+// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+function closeOverlay() {
+    overlay.setMap(null);     
+}
+
 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
