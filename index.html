@@ -133,7 +133,7 @@
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37ea71dcbe66db7d635ad2ee4c246c8e&libraries=clusterer"></script>
-<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/HotPlace_data/jquery-3.5.1.min.js"></script>
 <script>
 /*
 keysearchPlaces() 를 만들어야합!!!
@@ -157,7 +157,7 @@ GPS 안쓰게 토글도 만들어야지
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.39280618768211, 127.11205034960552), // 판교 현백
-        level: 8 // 지도의 확대 레벨
+        level: 6 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
