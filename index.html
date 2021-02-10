@@ -283,46 +283,10 @@ function closeOverlay() {
 /* ---------- Overlay 표시용 함수 (정리 필요) ---------- */ 
 
 
-var store_data
-var cluster_markers=[];
-data_path = "/HotPlace_data/giheung-1km.json"
-store_data = loadJSON(data_path,function(data) {return data},function(xhr) {console.error(xhr)})
-make_cluster_marker()
 
-function loadJSON(path, success, error)
-{
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                if (success)
-                    success(JSON.parse(xhr.responseText));
-            } else {
-                if (error)
-                    error(xhr);
-            }
-        }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
-}
-
-function make_cluster_marker(){
-    
-    for (i=0; i<store_data.length; i++) {
-        cluster_markers[i] = new kakao.maps.Marker({
-            position : new kakao.maps.LatLng(store_data[i].lat, store_data[i].lng),
-            title : store_data[i].name
-        });
-    };
-    clusterer.addMarkers(cluster_markers);
-    
-}
-    
     
 
-/* ---------- Marker Cluster용 함수 (정리 필요) ----------  
+/* ---------- Marker Cluster용 함수 (정리 필요) ----------  */
 // 마커 클러스터러를 생성합니다
 var clusterer = new kakao.maps.MarkerClusterer({
     map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
@@ -354,7 +318,7 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
     map.setCenter(moveLatLon);
     
 });
- ---------- Marker Cluster용 함수 (정리 필요) ---------- */ 
+/* ---------- Marker Cluster용 함수 (정리 필요) ---------- */ 
 
 
 // 배열 합치기 : a.concat(b)
