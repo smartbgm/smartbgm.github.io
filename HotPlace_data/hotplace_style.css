@@ -17,25 +17,6 @@ body {
 #map_id {
     position: absolute;
     z-index: 0;
-    width: 100%;* {
-  box-sizing: border-box;
-  margin:0;
-}
-
-/* 전체 Body Style */
-body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
-
-
-/* 카카오맵 Style */
-#map_id {
-    position: absolute;
-    z-index: 0;
     width: 100%;
     height: 100vh;
     background: url("http://t1.daumcdn.net/mapjsapi/images/bg_tile.png");
@@ -72,97 +53,6 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
 #category li:hover, #category li:hover {background: rgba(0, 0, 0, 0.1)}
 #category li span {display: block;margin:0 auto 3px;width:25px;height: 30px;}
 #category li .category_hos { background:url(/image/location_off.png) no-repeat; background-size: 30px; margin-bottom: 6px;}
-#category li .gps { background:url(/image/location_on.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
-
-
-
-/* 현재 위치 pulse Style */
-.pulse img{ margin: 0px;padding: 0px;  border: 0px solid transparent; display: block; user-select: none;  -webkit-user-drag: none;  box-sizing: content-box !important; max-width: none !important;max-height: none !important;min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 22px; height: 22px;left: 0px;top: 0px;}
-.pulse {z-index: 100;display: block;width: 22px;height: 22px;border-radius: 50%;background: #ffffff00;cursor: pointer;box-shadow: 0 0 0 rgb(255, 0, 0);animation: pulse 1.7s infinite;}
-@-webkit-keyframes pulse {
-    0% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);}
-    70% {-webkit-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
-    100% {-webkit-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
-}
-@keyframes pulse {
-    0% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.5);
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);}
-    70% {-moz-box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);
-        box-shadow: 0 0 0 20px rgba(204, 49, 44, 0);}
-    100% {-moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);}
-}
-
-
-
-/*
-.gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
-.gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-*/
-
-/* 화면 전환 시 - menu_wrap 이외에 나머지는 초기 뜨는 화면 조정 관련 */
-@media screen and (max-width: 750px) {
-    .legend img{width:100%;}
-    #menu_wrap{width:100%}
-    .modal-dialog{width:90% !important; padding-top: 10%;}
-    .modal-title{font-size:15px;}
-    .modal-body{font-size:13px;}
-    .feedback{font-size: 12px;}
-    .makerinfo{font-size: 11px;}
-}
-
-
-
-/* 커스텀 오버레이 관련 Style */
-.overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border: 1px solid #ccc; border-bottom: 2px solid #ddd;background-color:#fff;}
-.overlay_info:nth-of-type(n) {border:0; box-shadow: 0px 3px 10px #888;}
-
-.overlay_info a {display: block; width: calc(100% - 37px); background: #d95050; text-decoration: none; color: #fff; padding:8px 4px 8px 4px; font-size: 14px; border-radius: 6px 0px 0px 0px;}
-
-.overlay_info a .close {position: absolute;top: 0px; right: 0px; color: #fff; width: 37px; height: 37px; background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px;}
-.overlay_info a .close:hover {cursor: pointer;}
-
-.overlay_info .desc {padding:14px;position: relative; min-width: 190px; height: 56px; overflow: hidden;}
-.overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 12px; right: 12px; top: 12px; white-space: normal; text-align: center;}
-.overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat 0 bottom;}
-
-
-
-    height: 100vh;
-    background: url("http://t1.daumcdn.net/mapjsapi/images/bg_tile.png");
-}
-
-
-
-
-/* 검색창 Style */
-.all_wrapper {padding: 20px;}
-.search_wrap {position: relative; width: 100%; height: 33px;}
-.search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, '돋움', sans-serif; font-size: 15px; margin: 0px; padding: 0px;}
-#menu_wrap {position: absolute; top: 0; left: 0; width: 330px; margin: 0; padding: 2px; overflow-y: auto; background: rgba(255, 255, 255, 0.8); z-index: 1; font-size: 12px; border-radius: 10px; box-shadow: 0 2px 2px rgba(0,0,0,0.3);}
-#menu_wrap .option{padding: 0 10px; height: 30px;}
-#menu_wrap .option span{display: block; width:24px; height:24px; margin:4; float:right; }
-.w-100 {width: 100%!important;}
-.align-items-center {align-items: center!important;}
-.flex-column {flex-direction: column!important;}
-.d-flex { display: flex!important}
-.justify-content-between {justify-content: space-between!important;}
-
-#keyword {width:calc(100% - 40px); border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);}
-span.search_icon {background: url("/image/search-icon.png") no-repeat; background-size: 25px; }
-
-
-
-/* 검색창 아래 아이콘 Style */
-.wrapper {position: relative; width:162px;}
-.wrapper, .wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-
-#category {position: relative;top:15px;left:0;border-radius: 10px; border:1px solid rgba(0, 0, 0, 0);box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);background: rgba(255, 255, 255, 0.8); overflow: hidden;z-index: 2; margin-bottom: 10px;}
-
-#category li {font-weight: 600; font-size: 12px; color:rgba(0, 0, 0, 0.7); margin-top:0;float:left;list-style: none;width:80px;border-right:1px solid #acacac;padding:6px 0px 2px 0px;text-align: center; cursor: pointer;}
-#category li:hover, #category li:hover {background: rgba(0, 0, 0, 0.1)}
-#category li span {display: block;margin:0 auto 3px;width:25px;height: 25px;}
-#category li .category_hos { background:url(/image/location_off.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
 #category li .gps { background:url(/image/location_on.png) no-repeat; background-size: 25px; margin-bottom: 6px;}
 
 
