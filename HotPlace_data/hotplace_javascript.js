@@ -277,7 +277,7 @@ function make_overlay(i,data) {
     var content = '<div class="overlay_info">';
         content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="close_overlay('+i+')" title="닫기"></div></a>';
         content += '    <div class="desc">';
-        content += '        <span class="address">  ☆ (평가) : '+ data.star + ' (' + data.reply + '명) <br>';
+        content += '        <span class="address">  ☆ (평가) : '+ data.star + '점 (' + data.reply + '명) <br>';
         content += data.review + '명 리뷰' +'</span>';
         content += '    </div>';
         content += '</div>';
