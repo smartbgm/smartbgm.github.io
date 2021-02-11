@@ -275,7 +275,7 @@ function make_overlay(i,data) {
     var overlay = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:1.3});
     
     var content = '<div class="overlay_info">';
-        content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="" title="닫기"></div></a>';
+        content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="close_overlay('+i+')" title="닫기"></div></a>';
         content += '    <div class="desc">';
         content += '        <span class="address">  ☆ (평가) : '+ data.star + ' (' + data.reply + '명) <br>';
         content += data.review + '명 리뷰' +'</span>';
@@ -288,9 +288,9 @@ function make_overlay(i,data) {
     overlay_set[i] = overlay;
 }
 
-function overlay_click_event(data) {
-    for (i in data)
-        kakao.maps.event.addListener(cluster_markers[i], 'click', function(){});
+function close_overlay(index) {
+    overlay_set[index].setMap(null);
+    marker_onoff[index]=0;
 }
 
 /* ---------- Marker Cluster용 함수 ---------- */ 
@@ -308,7 +308,7 @@ var overlay_marker = new kakao.maps.Marker({
 var testtitle = "제발이건잘되어야"
 var testtext = "테스트 텍스트 테스트 텍스트"
 var content = '<div class="overlay_info">';
-    content += '    <a href="#"> <strong>'+testtitle+'</strong><div class="close" onclick="closeOverlay()" title="닫기"></div></a>';
+    content += '    <a href="#"> <strong>'+testtitle+'</strong><div class="close" onclick="closeverlay()" title="닫기"></div></a>';
     content += '    <div class="desc">';
     content += '        <span class="address">'+testtext+'</span>';
     content += '    </div>';
