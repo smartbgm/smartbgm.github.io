@@ -198,7 +198,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 
 
 
-/* ---------- Marker Cluster용 함수 ---------- */ 
+/* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
 // 마커 클러스터러를 생성합니다
 var clusterer = new kakao.maps.MarkerClusterer({
     map: map,
@@ -221,8 +221,8 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 var store_data;
 var cluster_markers = [];
 var overlay_set = [];
-var temp_overlay = Array.from({length: 100}, () => 0);
-var marker_onoff = Array.from({length: 100}, () => 0);
+var temp_overlay = [];
+var marker_onoff = [];
 
 data_path = "/HotPlace_data/giheung-1km.json"
 // HotPlace 데이터 로드
@@ -258,16 +258,17 @@ function make_cluster_marker(data) {
             position : new kakao.maps.LatLng(data[i].lat, data[i].lng),
             title : data[i].name
         });
-        
         (function (i,data){make_overlay(i,data)})(i,data[i]);
+        marker_onoff[i]=false;
+    };
+    for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                if (marker_onoff[i]==0){overlay.setMap(map); marker_onoff[i]=1;}
-                else if (marker_onoff[i]==1){overlay.setMap(null); marker_onoff[i]=0;}
+                if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
+                else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
                 console.log(i)
                 });
         })(i,cluster_markers[i], overlay_set[i]);
-        
     };
     clusterer.addMarkers(cluster_markers);
 }
@@ -279,8 +280,8 @@ function make_overlay(i,data) {
     var content = '<div class="overlay_info">';
         content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="close_overlay('+i+')" title="닫기"></div></a>';
         content += '    <div class="desc">';
-        content += '        <span class="address">  ☆☆ (평가) : '+ data.star + '점 (' + data.reply + '명) <br>';
-        content += data.review + '명 리뷰' +'</span>';
+        content += '        <span class="address"> (<span id="type">'+ data.type +'</span>) 리뷰 : '+ data.review +'명 <br>';
+        content += '        <b><span id="star">☆</span></b> (평가) : <b><span id="star">'+ data.star + '점</span></b> (' + data.reply + ')</span>';
         content += '    </div>';
         content += '</div>';
     
@@ -292,20 +293,20 @@ function make_overlay(i,data) {
 
 function close_overlay(index) {
     overlay_set[index].setMap(null);
-    marker_onoff[index]=0;
+    marker_onoff[index]=false;
 }
 
 // Zoom이 변경될 때 cluster가 작동하면 Overlay를 없앱니다.
 kakao.maps.event.addListener(clusterer, 'clustered', function(){
     if (map.getLevel()>=clusterer.getMinLevel()) {
         for (i in store_data){
-            if (marker_onoff[i]==1 && cluster_markers[i].Ec === null && temp_overlay[i]==0) {
+            if (marker_onoff[i]==true && cluster_markers[i].Ec === null && temp_overlay[i]==false) {
                 overlay_set[i].setMap(null);
-                temp_overlay[i]=1;
-            } else if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
+                temp_overlay[i]=true;
+            } else if (marker_onoff[i]==true && cluster_markers[i].Ec !== null && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
-                temp_overlay[i]=0;
-            }
+                temp_overlay[i]=false;
+            } else if (marker_onoff[i]==false) {temp_overlay[i]=false;}
         }
     } else {for (i in store_data) {temp_overlay[i]=0;}}
 });
@@ -313,60 +314,15 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
-            if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
+            if (marker_onoff[i]==true && cluster_markers[i].Ec !== null && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
-                temp_overlay[i]=0;
+                temp_overlay[i]=false;
             }
         }
     }
 });
-/* ---------- Marker Cluster용 함수 ---------- */ 
-// zoom chage => cluster_markers[i].Ec == null : true
-// kakao.maps.event.addListener(map, 'zoom_changed', function() {  });
+/* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
 
-
-
-/* ---------- 테스트용 일반 마커 및 Overlay 표시용 함수 (정리 필요) ---------- */ 
-var position = new kakao.maps.LatLng(37.2804721840256, 127.11467724252604);
-
-var overlay_marker = new kakao.maps.Marker({
-    map: map, 
-    position: position
-});
-var testtitle = "제발이건잘되어야"
-var testtext = "테스트 텍스트 테스트 텍스트"
-var content = '<div class="overlay_info">';
-    content += '    <a href="#"> <strong>'+testtitle+'</strong><div class="close" onclick="closeverlay()" title="닫기"></div></a>';
-    content += '    <div class="desc">';
-    content += '        <span class="address">'+testtext+'</span>';
-    content += '    </div>';
-    content += '</div>';
-
-
-// 마커 위에 커스텀오버레이를 표시합니다
-// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-var test_overlay = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:1.3});
-
-var marker_click = 0;
-
-// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-kakao.maps.event.addListener(overlay_marker, 'click', function() {
-    if (marker_click == 0){
-        test_overlay.setContent(content);
-        test_overlay.setPosition(overlay_marker.getPosition());
-        test_overlay.setMap(map);
-        marker_click = 1;
-        } else if (marker_click == 1) {
-        closeOverlay()
-        }
-});
-
-// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-function closeOverlay() {
-    test_overlay.setMap(null);
-    marker_click = 0
-}
-/* ---------- Overlay 표시용 함수 (정리 필요) ---------- */ 
 
 
 
