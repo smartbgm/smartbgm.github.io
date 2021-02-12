@@ -28,11 +28,11 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 var mapTypeControl = new kakao.maps.MapTypeControl();
 map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-    
+    */
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-*/
+map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
+
 
 
 
@@ -221,6 +221,7 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 var store_data;
 var cluster_markers = [];
 var overlay_set = [];
+var temp_overlay = Array.from({length: 100}, () => 0);
 var marker_onoff = Array.from({length: 100}, () => 0);
 
 data_path = "/HotPlace_data/giheung-1km.json"
@@ -263,6 +264,7 @@ function make_cluster_marker(data) {
             kakao.maps.event.addListener(marker, 'click', function() {
                 if (marker_onoff[i]==0){overlay.setMap(map); marker_onoff[i]=1;}
                 else if (marker_onoff[i]==1){overlay.setMap(null); marker_onoff[i]=0;}
+                console.log(i)
                 });
         })(i,cluster_markers[i], overlay_set[i]);
         
@@ -277,7 +279,7 @@ function make_overlay(i,data) {
     var content = '<div class="overlay_info">';
         content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="close_overlay('+i+')" title="닫기"></div></a>';
         content += '    <div class="desc">';
-        content += '        <span class="address">  ☆ (평가) : '+ data.star + '점 (' + data.reply + '명) <br>';
+        content += '        <span class="address">  ☆☆ (평가) : '+ data.star + '점 (' + data.reply + '명) <br>';
         content += data.review + '명 리뷰' +'</span>';
         content += '    </div>';
         content += '</div>';
@@ -293,8 +295,36 @@ function close_overlay(index) {
     marker_onoff[index]=0;
 }
 
-/* ---------- Marker Cluster용 함수 ---------- */ 
+// Zoom이 변경될 때 cluster가 작동하면 Overlay를 없앱니다.
+kakao.maps.event.addListener(clusterer, 'clustered', function(){
+    if (map.getLevel()>=clusterer.getMinLevel()) {
+        for (i in store_data){
+            if (marker_onoff[i]==1 && cluster_markers[i].Ec === null && temp_overlay[i]==0) {
+                overlay_set[i].setMap(null);
+                temp_overlay[i]=1;
+            } else if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
+                overlay_set[i].setMap(map);
+                temp_overlay[i]=0;
+            } //else {temp_overlay[i]=0;}
+        }
+    } else {for (i in store_data) {temp_overlay[i]=0;}}
+    // console.log(temp_overlay[26])
+});
 
+kakao.maps.event.addListener(map, 'zoom_changed', function(){
+    console.log(marker_onoff[24]==1, cluster_markers[24].Ec !== null, temp_overlay[24]==1);
+    if (map.getLevel()<clusterer.getMinLevel()){
+        for (i in store_data){
+            if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
+                overlay_set[i].setMap(map);
+                temp_overlay[i]=0;
+            }
+        }
+    }
+});
+/* ---------- Marker Cluster용 함수 ---------- */ 
+// zoom chage => cluster_markers[i].Ec == null : true
+// kakao.maps.event.addListener(map, 'zoom_changed', function() {  });
 
 
 
