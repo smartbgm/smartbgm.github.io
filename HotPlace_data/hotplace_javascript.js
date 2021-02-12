@@ -305,14 +305,12 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
             } else if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
                 overlay_set[i].setMap(map);
                 temp_overlay[i]=0;
-            } //else {temp_overlay[i]=0;}
+            }
         }
     } else {for (i in store_data) {temp_overlay[i]=0;}}
-    // console.log(temp_overlay[26])
 });
 
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
-    console.log(marker_onoff[24]==1, cluster_markers[24].Ec !== null, temp_overlay[24]==1);
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
             if (marker_onoff[i]==1 && cluster_markers[i].Ec !== null && temp_overlay[i]==1){
