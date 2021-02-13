@@ -204,7 +204,7 @@ var clusterer = new kakao.maps.MarkerClusterer({
 kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
     var level = map.getLevel()-2;
     // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
-    map.setLevel(level, {anchor: cluster.getCenter()});
+    map.setLevel(level, {anchor: cluster.getCenter(), animate:true});
     var cluster_center = new kakao.maps.LatLng(cluster.getCenter().Ma, cluster.getCenter().La);
     map.setCenter(cluster_center);
 });
