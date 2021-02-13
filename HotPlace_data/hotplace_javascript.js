@@ -2,23 +2,16 @@
 keysearchPlaces() 를 만들어야합!!!
 GPS 안쓰게 토글도 만들어야지 
 
-지도 레벨이 일정 수준을 넘어가면 모든 오버레이는 숨김
 */
 
 
 
-/*
-<div class="button" style="position:absolute; margin-top:0px;margin-left: 5%;">
-    <button onclick="getInfo()">GET_INFO</button>
-    <button onclick="gps_tracking()">현재 위치로</button>
-</div>
-
-*/
-
+// (37.2804721840256, 127.11467724252604) 기흥구청
+// (37.38279059708606, 127.11882455528438) 분당구청
 
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(37.2804721840256, 127.11467724252604),
+        center: new kakao.maps.LatLng(37.38279059708606, 127.11882455528438),
         level: 4 // 지도의 확대 레벨
     };
 
@@ -182,7 +175,7 @@ function getInfo() {
     console.log(message)
 }
 
-
+/*
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     
     // 클릭한 위도, 경도 정보를 가져옵니다 
@@ -192,7 +185,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     message += '경도는 ' + latlng.getLng() + ' 입니다';
     
     console.log(message)
-});
+});*/
 /* ---------- DEBUGing용 함수 ---------- */
 
 
@@ -221,10 +214,11 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 var store_data;
 var cluster_markers = [];
 var overlay_set = [];
+var infowindow_set = [];
 var temp_overlay = [];
 var marker_onoff = [];
 
-data_path = "/HotPlace_data/giheung-1km.json"
+data_path = "/HotPlace_data/boondang_giheung_filtered(35-10-20).json"
 // HotPlace 데이터 로드
 loadJSON(data_path,function(data) {
     store_data=data;
@@ -253,21 +247,26 @@ function loadJSON(path, success, error)
 }
 
 function make_cluster_marker(data) {
+    // marker와 overlay 생성
     for (i in data) {
         cluster_markers[i] = new kakao.maps.Marker({
             position : new kakao.maps.LatLng(data[i].lat, data[i].lng),
             title : data[i].name
         });
         (function (i,data){make_overlay(i,data)})(i,data[i]);
+        (function (marker,i,data){make_infowindow(marker,i,data)})(cluster_markers[i],i,data[i]);
         marker_onoff[i]=false;
     };
+    
+    // overlay 클릭 이벤트 생성
     for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
+                // console.log(i)
                 if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
                 else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
-                console.log(i)
-                });
+            });
+            kakao.maps.event.addListener(overlay, 'dragestart', kakao.maps.event.preventMap);
         })(i,cluster_markers[i], overlay_set[i]);
     };
     clusterer.addMarkers(cluster_markers);
@@ -275,7 +274,7 @@ function make_cluster_marker(data) {
 
 function make_overlay(i,data) {
     
-    var overlay = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:1.3});
+    var overlay = new kakao.maps.CustomOverlay({zIndex:2, xAnchor:0.5, yAnchor:1.3});
     
     var content = '<div class="overlay_info">';
         content += '    <a href="#"> <strong>'+ data.name + '</strong><div class="close" onclick="close_overlay('+i+')" title="닫기"></div></a>';
@@ -296,25 +295,89 @@ function close_overlay(index) {
     marker_onoff[index]=false;
 }
 
-// Zoom이 변경될 때 cluster가 작동하면 Overlay를 없앱니다.
+function make_infowindow(marker,i,data){
+    var info_window = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:2.1});
+    
+    var info_content = '<div class="info_window">';
+        info_content += data.type + '<br> <span id="star"><b>☆ ' + data.star + '</b></span></div>';
+    
+    info_window.setContent(info_content);
+    info_window.setPosition(new kakao.maps.LatLng(data.lat, data.lng));
+    
+    //info_window.setMap(map);
+    
+    infowindow_set[i] = info_window;
+}
+
+
+// Zoom이 변경될 때 cluster가 작동하면 Overlay, info window를 없앱니다.
 kakao.maps.event.addListener(clusterer, 'clustered', function(){
+    
     if (map.getLevel()>=clusterer.getMinLevel()) {
+        /*
         for (i in store_data){
-            if (marker_onoff[i]==true && cluster_markers[i].Ec === null && temp_overlay[i]==false) {
-                overlay_set[i].setMap(null);
-                temp_overlay[i]=true;
-            } else if (marker_onoff[i]==true && cluster_markers[i].Ec !== null && temp_overlay[i]==true){
-                overlay_set[i].setMap(map);
-                temp_overlay[i]=false;
-            } else if (marker_onoff[i]==false) {temp_overlay[i]=false;}
+            
+            if (cluster_markers[i].Ec == null){
+                // infowindow_set[i].setMap(null);
+                if (marker_onoff[i]==true && temp_overlay[i]==false){
+                    overlay_set[i].setMap(null);
+                    temp_overlay[i]=true;
+                } else if (marker_onoff[i]==false){temp_overlay[i]=false;}
+            }
+            
+            else if (cluster_markers[i].Ec != null){
+                // infowindow_set[i].setMap(map);
+                if (marker_onoff[i]==true && temp_overlay[i]==true){
+                    overlay_set[i].setMap(map);
+                    temp_overlay[i]=false;
+                } else if (marker_onoff[i]==false){temp_overlay[i]=false;}
+            }
+        }*/
+        for (i in clusterer._clusters){
+            if (clusterer._clusters[i]._markers.length != 1){
+                for (j in clusterer._clusters[i]._markers){
+                    var index = cluster_markers.indexOf(clusterer._clusters[i]._markers[j])
+                    infowindow_set[index].setMap(null);
+                    if (marker_onoff[index]==true && temp_overlay[i]==false){
+                        overlay_set[index].setMap(null);
+                        temp_overlay[index]=true;
+                    } else if (marker_onoff[index]==false){temp_overlay[index]=false;}
+                }
+            } else if (clusterer._clusters[i]._markers.length == 1){
+                index = cluster_markers.indexOf(clusterer._clusters[i]._markers[0])
+                infowindow_set[index].setMap(map);
+                if (marker_onoff[index]==true && temp_overlay[i]==true){
+                    overlay_set[index].setMap(map);
+                    temp_overlay[index]=false;
+                } else if (marker_onoff[index]==false){temp_overlay[index]=false;}
+            }
         }
-    } else {for (i in store_data) {temp_overlay[i]=0;}}
+    } else {for (i in store_data) {temp_overlay[i]=false;}}
 });
 
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
+    /*
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
-            if (marker_onoff[i]==true && cluster_markers[i].Ec !== null && temp_overlay[i]==true){
+            
+            if (cluster_markers[i].Ec == null){
+                infowindow_set[i].setMap(null);
+            }
+            
+            if (cluster_markers[i].Ec != null){
+                infowindow_set[i].setMap(map);
+                if (marker_onoff[i]==true && temp_overlay[i]==true){
+                    overlay_set[i].setMap(map);
+                    temp_overlay[i]=false;
+                }
+            }
+            
+        }
+    }*/
+    if (map.getLevel()<clusterer.getMinLevel()){
+        for (i in store_data){
+            infowindow_set[i].setMap(map);
+            if (marker_onoff[i]==true && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
                 temp_overlay[i]=false;
             }
@@ -322,6 +385,7 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
     }
 });
 /* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
+
 
 
 
