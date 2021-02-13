@@ -103,10 +103,11 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
 .overlay_info a .close {position: absolute;top: 0px; right: 0px; color: #fff; width: 37px; height: 37px; background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px;}
 .overlay_info a .close:hover {cursor: pointer;}
 
-.overlay_info .desc {padding:8px; position: relative; min-width: 150px; height: 56px; overflow: hidden;}
-.overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 12px; right: 12px; top: 12px; width: fit-content; white-space: normal; text-align: center; margin:auto;}
+.overlay_info .desc {padding:8px; position: relative; min-width: 160px; height: 56px; overflow: hidden;}
+.overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 12px; right: 12px; top: 12px; width: max-content; white-space: normal; text-align: center; margin:auto;}
+.overlay_info .address #tvshow{font-weight: bolder; text-transform: uppercase; color: darkslategrey; font-size:x-small; }
 .overlay_info .address #type{color: #3d75cc;}
-.overlay_info .address #star{color: #ff5d5d; font-size: 14px;}
+.overlay_info .address #star{color: #ff5d5d; font-size: 14px; font-weight: bold;}
 .overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat 0 bottom;}
 
 .info_window {font-size: 10px; color: #3d75cc; background-color: rgba(255,255,255,0.8); padding: 2px; z-index:1; border-radius: 10px}
