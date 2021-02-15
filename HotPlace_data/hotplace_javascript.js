@@ -396,7 +396,8 @@ function show_inner_frame(){
 function close_inner_frame(){
     var newframe = document.getElementById('new_frame');
     var iframe = document.getElementById('inner_frame');
-    iframe.src=""
+    
+    iframe.src="about:blank"
     newframe.style.display = 'none';
     newframe.style.zIndex = -10;
 }
