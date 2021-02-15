@@ -4,7 +4,7 @@ GPS 안쓰게 토글도 만들어야지
 
 */
 
-
+var data_path = "/HotPlace_data/Nonhyeon_boondang_giheung_filtered(35-10-20).json"
 
 // (37.2804721840256, 127.11467724252604) 기흥구청
 // (37.38279059708606, 127.11882455528438) 분당구청
@@ -218,7 +218,6 @@ var infowindow_set = [];
 var temp_overlay = [];
 var marker_onoff = [];
 
-data_path = "/HotPlace_data/boondang_giheung_filtered2(35-10-20).json"
 // HotPlace 데이터 로드
 loadJSON(data_path,function(data) {
     store_data=data;
@@ -389,10 +388,7 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
 /* ---------- iframe 요소 ---------- */
 function show_inner_frame(){
     var newframe = document.getElementById('new_frame');
-    
-    newframe.style.display = 'block';
-    newframe.style.zIndex = 110;
-    
+    newframe.classList.add('frame_on');
 }
 
 function close_inner_frame(){
@@ -400,8 +396,9 @@ function close_inner_frame(){
     var iframe = document.getElementById('inner_frame');
     
     iframe.src="about:blank"
-    newframe.style.display = 'none';
-    newframe.style.zIndex = -10;
+    newframe.classList.remove('frame_on');
 }
-
+// document.querySelector('.overlay_info a').addEventListener('click',function(){
+//     document.querySelector('.new_frame').classList.toggle('frame_on')
+// }
 /* ---------- iframe 요소 ---------- */
