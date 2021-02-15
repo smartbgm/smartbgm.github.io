@@ -338,7 +338,7 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
                 for (j in clusterer._clusters[i]._markers){
                     var index = cluster_markers.indexOf(clusterer._clusters[i]._markers[j])
                     infowindow_set[index].setMap(null);
-                    if (marker_onoff[index]==true && temp_overlay[i]==false){
+                    if (marker_onoff[index]==true && temp_overlay[index]==false){
                         overlay_set[index].setMap(null);
                         temp_overlay[index]=true;
                     } else if (marker_onoff[index]==false){temp_overlay[index]=false;}
@@ -346,7 +346,7 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
             } else if (clusterer._clusters[i]._markers.length == 1){
                 index = cluster_markers.indexOf(clusterer._clusters[i]._markers[0])
                 infowindow_set[index].setMap(map);
-                if (marker_onoff[index]==true && temp_overlay[i]==true){
+                if (marker_onoff[index]==true && temp_overlay[index]==true){
                     overlay_set[index].setMap(map);
                     temp_overlay[index]=false;
                 } else if (marker_onoff[index]==false){temp_overlay[index]=false;}
