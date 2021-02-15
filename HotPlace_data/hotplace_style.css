@@ -90,7 +90,7 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
     .modal-body{font-size:13px;}
     .feedback{font-size: 12px;}
     .makerinfo{font-size: 11px;}
-    .new_frame #inner_frame{width:100% !important; height:70% !important;left:0% !important;}
+    .new_frame #inner_frame{width:100% !important; height:75% !important;left:0% !important;}
 }
 
 
@@ -117,5 +117,6 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
 
 
 /* iframe 관련 Style */
-.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.25); z-index:-10; display:none; transition:opacity .15s linear;}
+.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.25); z-index:-10; display:none; opacity:0; transition:opacity 0.3s linear 1s;}
+.new_frame.frame_on {z-index:110; display:block; opacity:1.0; transition:opacity 0.3s linear 1s;}
 .new_frame #inner_frame {position:absolute; top:10%; left:15%; width:70%; height:85%; border:none;background-color:rgba(255,255,255,0.8);}
