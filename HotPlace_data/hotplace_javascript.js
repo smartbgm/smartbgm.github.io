@@ -277,7 +277,7 @@ function make_overlay(i,data) {
     var overlay = new kakao.maps.CustomOverlay({zIndex:2, xAnchor:0.5, yAnchor:1.3});
     
     var content = '<div class="overlay_info">';
-        content += '    <a href="'+data.url+'"target="inner_iframe" onclick="show_inner_frame(\''+data.url+'\')"> <strong>'+ data.name + '</strong></a><div class="close" onclick="close_overlay('+i+')" title="닫기"></div>';
+        content += '    <a href="'+data.url+'"target="inner_iframe" onclick="show_inner_frame()"> <strong>'+ data.name + '</strong></a><div class="close" onclick="close_overlay('+i+')" title="닫기"></div>';
         content += '    <div class="desc">';
         content += '        <span class="address"> <span id="tvshow">'+ data.tvshow +'</span>(<span id="type">'+ data.type +'</span>) 리뷰 : '+ data.review +'명 <br>';
         content += '        <span id="star">☆</span> (평가) : <span id="star">'+ data.star + '점</span> (' + data.reply + ')</span>';
@@ -387,11 +387,9 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
 /* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
 
 /* ---------- iframe 요소 ---------- */
-function show_inner_frame(url){
+function show_inner_frame(){
     var newframe = document.getElementById('new_frame');
-    var iframe = document.getElementById('inner_frame');
     
-    iframe.src = url;
     newframe.style.display = 'block';
     newframe.style.zIndex = 110;
     
