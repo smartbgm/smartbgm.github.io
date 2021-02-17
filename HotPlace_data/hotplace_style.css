@@ -5,10 +5,15 @@
 
 /* 전체 Body Style */
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
 
 
@@ -26,21 +31,12 @@ body {
 
 
 /* 검색창 Style */
-.all_wrapper {padding: 20px;}
-.search_wrap {position: relative; width: 100%; height: 33px;}
-.search_wrap, .search_wrap * {font-family: "Malgun Gothic", dotum, '돋움', sans-serif; font-size: 15px; margin: 1px; padding: 0px;}
-#menu_wrap {position: absolute; top: 0; left: 0; width: 330px; margin: 0; padding: 2px; overflow-y: auto; background: rgba(255, 255, 255, 0.8); z-index: 98; font-size: 12px; border-radius: 10px; box-shadow: 0 2px 2px rgba(0,0,0,0.3);}
-#menu_wrap .option{padding: 0 10px; height: 30px;}
-#menu_wrap .option span{display: block; width:24px; height:24px; margin:4; float:right; }
-.w-100 {width: 100%!important;}
-.align-items-center {align-items: center!important;}
-.flex-column {flex-direction: column!important;}
-.d-flex { display: flex!important}
-.justify-content-between {justify-content: space-between!important;}
-
-#keyword {width:calc(100% - 40px); border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);}
-span.search_icon {background: url("/image/search-icon.png") no-repeat; background-size: 25px; }
-
+.all_wrapper {padding: 20px; font-family: "Malgun Gothic", dotum, '돋움', sans-serif;}
+.search_box {position: relative; width: 330px; height: 36px; padding: 2px; overflow-y: auto; background-color: rgba(255,255,255,0.8); z-index: 98; border-radius: 10px; box-shadow: 0 2px 2px rgba(0,0,0,0.3);}
+.search_form {padding: 2px 10px; width: 100%; height: 30px; overflow:hidden;}
+.search_form #keyword {width:calc(100% - 40px); height: 100%; font-size: 0.95rem; border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0); float: left;}
+.search_form .search_icon {display: block; width:28px; height:28px; margin:0px 4px; background: url("/image/search-icon.png") no-repeat; background-size: 28px; border-radius: 8px; float: right;}
+.search_form .search_icon:active {background-color:rgba(0,0,0,0.1);}
 
 
 /* 검색창 아래 아이콘 Style */
@@ -83,6 +79,9 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
 
 /* 화면 전환 시 - menu_wrap 이외에 나머지는 초기 뜨는 화면 조정 관련 */
 @media screen and (max-width: 750px) {
+    .search_box{width:100% !important}
+    .new_frame #inner_frame{width:100% !important; height:75% !important;left:0% !important;}
+    
     .legend img{width:100%;}
     #menu_wrap{width:100%}
     .modal-dialog{width:90% !important; padding-top: 10%;}
@@ -90,25 +89,22 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
     .modal-body{font-size:13px;}
     .feedback{font-size: 12px;}
     .makerinfo{font-size: 11px;}
-    .new_frame #inner_frame{width:100% !important; height:75% !important;left:0% !important;}
+    
 }
 
 
 
 /* 커스텀 오버레이 관련 Style */
-.overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border: 1px solid #ccc; border-bottom: 2px solid #ddd;background-color:#fff; z-index:2;}
-.overlay_info:nth-of-type(n) {border:0; box-shadow: 0px 3px 10px #888;}
-
-.overlay_info a {display: block; width: calc(100% - 37px); background: #d95050; text-decoration: none; color: #fff; padding:8px 4px 8px 4px; font-size: 14px; border-radius: 6px 0px 0px 0px;}
-
-.overlay_info .close {position: absolute;top: 0px; right: 0px; color: #fff; width: 37px; height: 37px; background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px;}
-.overlay_info .close:hover {cursor: pointer;}
-
-.overlay_info .desc {padding:8px; position: relative; min-width: 160px; height: 56px; overflow: hidden;}
-.overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 12px; right: 12px; top: 12px; width: max-content; white-space: normal; text-align: center; margin:auto;}
-.overlay_info .address #tvshow{font-weight: bolder; text-transform: uppercase; color: darkslategrey; font-size:x-small; }
-.overlay_info .address #type{color: #3d75cc;}
-.overlay_info .address #star{color: #ff5d5d; font-size: 14px; font-weight: bold;}
+.overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; background-color:#fff; z-index:2;border:0; box-shadow: 0px 3px 10px #888; min-width:140px;text-align:center;}
+.overlay_info #store_name {width:calc(100% - 37px); height: 37px; padding:6px 4px 6px 4px; border-radius: 6px 0px 0px 0px; background: #d95050; float:left;}
+.overlay_info a { text-decoration: none; color: #fff; font-size: 14px; }
+.overlay_info #overlay_close {color: #fff; width: 37px; height: 37px; background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px; float:left;}
+.overlay_info #overlay_close:hover {cursor: pointer;}
+.overlay_info #store_assessment {position: relative; height: 52px; min-width: 140px; overflow: hidden; padding:4px 8px; clear:both;}
+.overlay_info #assessment {position: relative; top: -4px; width: max-content; white-space: nowrap; font-size: 12px; color: #333;}
+.overlay_info #assessment #tvshow{font-weight: bolder; text-transform: uppercase; color: darkslategrey; font-size:x-small; }
+.overlay_info #assessment #type{color: #3d75cc;}
+.overlay_info #assessment #star{color: #ff5d5d; font-size: 14px; font-weight: bold;}
 .overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat 0 bottom;}
 
 /* Info window 관련 Style */
@@ -117,6 +113,6 @@ span.search_icon {background: url("/image/search-icon.png") no-repeat; backgroun
 
 
 /* iframe 관련 Style */
-.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.25); z-index:-10; display:none; opacity:0; transition:opacity 0.3s linear 1s;}
+.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.4); z-index:-10; display:none; opacity:0; transition:opacity 0.3s linear 1s;}
 .new_frame.frame_on {z-index:110; display:block; opacity:1.0; transition:opacity 0.3s linear 1s;}
 .new_frame #inner_frame {position:absolute; top:10%; left:15%; width:70%; height:85%; border:none;background-color:rgba(255,255,255,0.8);}
