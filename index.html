@@ -20,8 +20,8 @@
         
         <div class="wrapper">
             <ul id="category">
-                <li id="hospital"> <span class="category_hos" title="코로나19 진료소"></span>----</li>
-                <li> <span class="gps" title="현재 위치 추적"></span>현재 위치로</li>
+                <li id="hospital" onclick="toast_message('테스트메시지')"> <span class="category_hos" title="코로나19 진료소"></span>----</li>
+                <li onclick="clickGPS()"> <span class="gps" title="현재 위치 추적"></span>현재 위치로</li>
             </ul>
         </div>
         
@@ -29,7 +29,8 @@
     <div class="new_frame" id="new_frame" onclick="close_inner_frame()">
         <iframe src="about:blank" name="inner_iframe" id="inner_frame">iframe이 동작하지 않습니다. <br>최신 크롬브라우저를 이용해 주세요. <br> ios도 아마 제대로 동작 안할껍니다. <br> 그럼 pc에서 사용해주세요 <br> 왜냐하면 저는 아직 그런 능력이 없거든요.</iframe>
     </div>
-
+    <div class="toast" id="toast">Toast 메시지 창
+    </div>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37ea71dcbe66db7d635ad2ee4c246c8e&libraries=clusterer,services"></script>
     <script type="text/javascript" src="/HotPlace_data/hotplace_javascript.js"></script>
