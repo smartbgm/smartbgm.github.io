@@ -113,6 +113,12 @@ span.search_icon:hover, span.search_icon:active {background-color:rgba(0,0,0,0.1
 
 
 /* iframe 관련 Style */
-.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.4); z-index:-10; display:none; opacity:0; transition:opacity 0.3s linear 1s;}
-.new_frame.frame_on {z-index:110; display:block; opacity:1.0; transition:opacity 0.3s linear 1s;}
+.new_frame {position: absolute; top:0px; left:0px; width:100%; height:100vh; background-color:rgba(0,0,0,0.4); opacity:0; z-index:-10; transition:opacity 0.5s;}
+.new_frame.frame_on {opacity:1.0; z-index:110; transition:opacity 0.5s;}
 .new_frame #inner_frame {position:absolute; top:10%; left:15%; width:70%; height:85%; border:none;background-color:rgba(255,255,255,0.8);}
+
+
+/* Toast message 관련 */
+.toast {position:absolute; top: 24px; left:50%; padding: 2px 12px; transform:translateX(-50%); z-index: -10; color: rgb(255,255,255); background-color: rgba(0,0,0,0.6); opacity: 0.0; font-weight: bold; border-radius: 14px; transition: opacity 1.0s;}
+.toast_on {opacity: 0.8; z-index:110;}
+
