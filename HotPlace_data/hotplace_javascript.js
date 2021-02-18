@@ -29,120 +29,65 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 
 
 
+/* ---------- GPS 관련 함수 ---------- */
 
 var gps_use = null; //gps의 사용가능 여부
 var gps_lat = null; // 위도
 var gps_lng = null; // 경도
-var gps_position; // gps 위치 객체
-
-gps_check();
-// gps가 이용가능한지 체크하는 함수이며, 이용가능하다면 show location 함수를 불러온다.
-// 만약 작동되지 않는다면 경고창을 띄우고, 에러가 있다면 errorHandler 함수를 불러온다.
-// timeout을 통해 시간제한을 둔다.
-function gps_check(){
-    if (navigator.geolocation) {
-        console.log(navigator.geolocation);
-        var options = {timeout:5000, enableHighAccuracy: true};
-        navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
-        console.log(gps_lat,gps_lng)
-    } else {
-        alert("GPS_추적이 불가합니다.");
-        gps_use = false;
-    }
-}
+var gps_overlay;
 
 
-// gps 이용 가능 시, 위도와 경도를 반환하는 showlocation함수.
-function showLocation(position) {
-    gps_use = true;
-    gps_lat = position.coords.latitude;
-    gps_lng = position.coords.longitude;
-}
-
-
-// error발생 시 에러의 종류를 알려주는 함수.
-function errorHandler(error) {
-    if(error.code == 1) {
-        console.log("permission denied");
-    } else if( err.code == 2) {
-        console.log("position unavailable (error response from location provider)");
-    } else if( err.code == 3) {
-        console.log("timeout");
-    } else if( err.code == 0) {
-        console.log("unknown error");
-    }
-    gps_use = false;
-}
-
-function onClickGPS() {
-    gps_check()
-    changeCategoryClass(this)
-    if (gps_use) {
-        map.panTo(new kakao.maps.LatLng(gps_lat,gps_lng))
-        var gps_content = '<div><img class="pulse" draggable="false" unselectable="on" src="https://ssl.pstatic.net/static/maps/m/pin_rd.png" alt=""></div>';
-        var currentOverlay = new kakao.maps.CustomOverlay({
-            position: new kakao.maps.LatLng(gps_lat,gps_lng),
-            content: gps_content,
-        })
-        currentOverlay.setMap(map)
-    } else {
-        alert("접근차단하신 경우 새로고침, 아닌 경우 잠시만 기다려주세요.")
-        gps_check()
-    }
-}
-
-addCategoryClickEvent()
-
-function addCategoryClickEvent() {
-    var category = document.getElementById('category'),
-        children = category.children
+function clickGPS() {
     
-    /*
-    // category의 하위 항목에 onclick 함수를 할당해줌
-    for (var i=0; i<children.length-1; i++) {
-        children[i].onclick = onClickCategory
-    }
-    */
-    children[0].onclick = getInfo
-
-    // gps(나의 위치 찾기)만 따로 함수를 만들어줘서 관리
-    children[children.length-1].onclick = onClickGPS
+    var geo_success = function(position) {
+        //hide_toast();
+        //clearTimeout(toast_timeout);
+        
+        gps_lat = position.coords.latitude;
+        gps_lng = position.coords.longitude;
+        
+        if (gps_use) {
+            var position = new kakao.maps.LatLng(gps_lat,gps_lng);
+            map.panTo(position);
+            gps_overlay.setPosition(position);
+        } else {
+            var position = new kakao.maps.LatLng(gps_lat,gps_lng);
+            map.panTo(position);
+            var gps_content = '<div><img class="pulse" draggable="false" unselectable="on" src="https://ssl.pstatic.net/static/maps/m/pin_rd.png" alt=""></div>';
+            gps_overlay = new kakao.maps.CustomOverlay({
+                position: position,
+                content: gps_content,
+            })
+            gps_overlay.setMap(map)
+            gps_use = true;
+        };
+    };
+    var geo_error = function(error) {
+        switch(error.code) {
+            case error.TIMEOUT:
+                toast_message('위치 정보를 읽어올 수 없습니다. <br> 다시 시도해 주세요.');
+                gps_use = false;
+                break;
+            case error.PERMISSION_DENIED:
+                toast_message('현재 위치를 사용하시려면,<br> 위치 권한을 허용해주세요.');
+                gps_use = false;
+                break;
+            case error.POSITION_UNAVAILABLE:
+                toast_message('위치 정보를 얻을 수 없습니다.');
+                gps_use = false;
+                break;
+            case error.UNKNOWN_ERROR:
+                toast_message('GPS UNKNOWN_ERROR');
+                gps_use = false;
+                break;
+        };
+    };
+    var options = {timeout:3000, enableHighAccuracy: true};
+    
+    navigator.geolocation.getCurrentPosition(geo_success, geo_error, options);
 }
 
-// 카테고리를 클릭했을 때 호출되는 함수입니다
-function onClickCategory() {
-    var id = this.id,
-        className = this.className
-
-    // category 하위 항목을 선택하면 palce overlay가 꺼짐
-    placeOverlay.setMap(null)
-
-    // 현재 켜져있는 상태였던 걸 한번 더 클릭한 거면 꺼주고, 꺼진 상태였으면 활성화.
-    if (className === 'on') {
-        currCategory = ''
-        changeCategoryClass()
-        removeMarker()
-    } else {
-        currCategory = id
-        changeCategoryClass(this)
-        searchPlaces()
-    }
-}
-
-// 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-function changeCategoryClass(el) {
-    var category = document.getElementById('category'),
-        children = category.children
-    // 다른 카테고리 하위 목록들은 다 꺼주고
-    for (var i=0; i<children.length; i++ ) { 
-        children[i].className = ''
-    }
-    // 현재 선택된 카테고리만 활성화 해 줍니다.
-    if (el) {
-        el.className = 'on'
-    } 
-}
-/* 여기까지 GPS 관련 함수,,,,,,,, 추후에 정리 필요 */
+/* ---------- GPS 관련 함수 ---------- */
 
 
 function keysearchPlaces() {
@@ -317,25 +262,6 @@ function make_infowindow(marker,i,data){
 kakao.maps.event.addListener(clusterer, 'clustered', function(){
     
     if (map.getLevel()>=clusterer.getMinLevel()) {
-        /*
-        for (i in store_data){
-            
-            if (cluster_markers[i].Ec == null){
-                // infowindow_set[i].setMap(null);
-                if (marker_onoff[i]==true && temp_overlay[i]==false){
-                    overlay_set[i].setMap(null);
-                    temp_overlay[i]=true;
-                } else if (marker_onoff[i]==false){temp_overlay[i]=false;}
-            }
-            
-            else if (cluster_markers[i].Ec != null){
-                // infowindow_set[i].setMap(map);
-                if (marker_onoff[i]==true && temp_overlay[i]==true){
-                    overlay_set[i].setMap(map);
-                    temp_overlay[i]=false;
-                } else if (marker_onoff[i]==false){temp_overlay[i]=false;}
-            }
-        }*/
         for (i in clusterer._clusters){
             if (clusterer._clusters[i]._markers.length != 1){
                 for (j in clusterer._clusters[i]._markers){
@@ -359,24 +285,7 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
 });
 
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
-    /*
-    if (map.getLevel()<clusterer.getMinLevel()){
-        for (i in store_data){
-            
-            if (cluster_markers[i].Ec == null){
-                infowindow_set[i].setMap(null);
-            }
-            
-            if (cluster_markers[i].Ec != null){
-                infowindow_set[i].setMap(map);
-                if (marker_onoff[i]==true && temp_overlay[i]==true){
-                    overlay_set[i].setMap(map);
-                    temp_overlay[i]=false;
-                }
-            }
-            
-        }
-    }*/
+
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
             infowindow_set[i].setMap(map);
@@ -402,225 +311,15 @@ function close_inner_frame(){
     iframe.src="about:blank"
     newframe.classList.remove('frame_on');
 }
-// document.querySelector('.overlay_info a').addEventListener('click',function(){
-//     document.querySelector('.new_frame').classList.toggle('frame_on')
-// }
 /* ---------- iframe 요소 ---------- */
 
-//kakao.maps.event.addListener(clusterer, 'drag', kakao.maps.event.preventMap);
-//kakao.maps.event.addListener(clusterer, 'touchstart', kakao.maps.event.preventMap);
 
-
-
-/*
-// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
-var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-    contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-    markers = [], // 마커를 담을 배열입니다
-    currCategory = '', // 현재 선택된 카테고리를 가지고 있을 변수입니다
-    addressResult = []
-
-
-// 아무데나 클릭하게되면 overlay를 끄게 합니다.
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-    placeOverlay.setMap(null)
-})
-
-contentNode.className = 'overlay_info'
-
-// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
-addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap)
-addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap)
-
-// 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
-function addEventHandle(target, type, callback) {
-    if (target.addEventListener) {
-        target.addEventListener(type, callback);
-    } else {
-        target.attachEvent('on' + type, callback);
-    }
+/* ---------- toast message 관련 ---------- */
+function toast_message(message){
+    var toast_class = document.getElementsByClassName("toast");
+    toast_class[0].innerHTML = message;
+    toast_class[0].classList.add("toast_on");
+    var remove_toast = function (){toast_class[0].classList.remove("toast_on");};
+    setTimeout(remove_toast,3000);
 }
-
-// 커스텀 오버레이 컨텐츠를 설정합니다
-placeOverlay.setContent(contentNode)
-
-
-
-// 지도에 마커를 표출하는 함수입니다
-function displayPlaces(places) {
-    // 목적지 검색의 경우 최상단 검색결과 좌표로 향하며
-    if (currCategory =="keyword"){
-        addMarker(new kakao.maps.LatLng(places.y, places.x))
-        zoomIn()
-        map.panTo(new kakao.maps.LatLng(places.y, places.x))
-        displayPlaceInfo(places)
-    }
-    // 진료소 검색의 경우 모든 좌표를 표시합니다.
-    else{
-        for (var i=0; i<places.length; i++) {
-            // 마커를 생성하고 지도에 표시합니다
-            var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x));
-            // 마커와 검색결과 항목을 클릭 했을 때 장소정보를 표출하도록 클릭 이벤트를 등록합니다
-            (function(marker, place) {
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    zoomIn()
-                    map.panTo(new kakao.maps.LatLng(place.y, place.x))
-                    displayPlaceInfo(place)
-                })
-            })(marker, places[i])
-        }
-    }
-}
-
-
-// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-function addMarker(position, palce_type, color) {
-    if(currCategory == 'mask'){
-        var imageSrc = image_url + color + '/' + palce_type + "-marker.png"
-        var imageSize = new kakao.maps.Size(27, 28)  // 마커 이미지의 크기
-    } else if(currCategory == 'keyword'){
-        var imageSrc = 'static/main/image/keyword.png'
-        var imageSize = new kakao.maps.Size(27, 28)
-    } else if (currCategory == "hospital"){
-        var imageSrc = image_url + 'hospital-marker.png';
-        var imageSize = new kakao.maps.Size(27, 28)
-    } else {
-        var imageSrc = '/static/main/image/patient.png'
-        var imageSize = new kakao.maps.Size(27, 28)
-    }
-
-    var imgOptions =  {offset: new kakao.maps.Point(10,20)},
-        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-            marker = new kakao.maps.Marker({
-            position: position,
-            image: markerImage
-        });
-
-    marker.setMap(map);
-    if(currCategory != ''){markers.push(marker);}  // 배열에 생성된 마커를 추가합니다
-    return marker;
-}
-
-// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-function removeMarker() {
-    if (currCategory != "keyword"){
-        for ( var i = 0; i < markers.length; i++ ) {
-            markers[i].setMap(null);
-        }   
-        markers = [];
-    }
-}
-
-// 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
-function displayPlaceInfo (place) {
-    content = ''
-        + '    <div class="placeinfo pb-0">'
-        + '        <div class="ptitle d-flex justify-content-between align-items-center flex-wrap">'
-        + '            <h1 class="m-0 text-center">' + place.place_name + '</h1>'
-        + '        </div>'
-        + '        <div class="w-100 p-2">'
-        + '            <span class="info_content time_at">전화 번호: <strong>' + place.phone + '</strong></span>'
-        + '        </div>'
-        + '    </div>'
-        + '    <div class="after"></div>'
-
-    contentNode.innerHTML = content;
-    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-    placeOverlay.setMap(map);
-}
-
-
-// ==================== 확진자 ======================================================
-
-var patientOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-    patientNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-
-// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
-patientNode.className = 'placeinfo_wrap';
-// 커스텀 오버레이 컨텐츠를 설정합니다
-patientOverlay.setContent(patientNode); 
-
-// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
-addEventHandle(patientNode, 'mousedown', kakao.maps.event.preventMap);
-addEventHandle(patientNode, 'touchstart', kakao.maps.event.preventMap);
-
-displayPatient(paths);
-
-// 지도에 확진자 동선을 보여줍니다.
-function displayPatient(paths) {
-    var length = paths.length;
-    for ( var i=0; i<length; i++ ) {
-        visited_date_split = paths[i]["visited_date"].split(" ")
-        var nodemon = Number(visited_date_split[1].slice(0, -1))
-        var nodeday = Number(visited_date_split[2].slice(0, -1))
-
-            // 30일을 기준으로 방문시간이 지날수록 점점 옅게 보여줍니다.
-            if ( nodeday+nodemon*30 > dt+mon*30-30){
-                // var opa = (((nodeday+nodemon*30)-(dt+mon*30)+30)/30)
-                var opa = 1
-                var marker = addMarker(new kakao.maps.LatLng(paths[i]["y"], paths[i]["x"]));
-                marker.setOpacity(opa);
-                (function(marker, y, x, num, date, loc) {
-                    kakao.maps.event.addListener(marker, 'click', function() {
-                        map.panTo(new kakao.maps.LatLng(y, x))
-                        displayPatientInfo(y, x, num,date,loc);
-                    });
-                })(marker, paths[i]["y"], paths[i]["x"], paths[i]["patient"], paths[i]["visited_date"], paths[i]["place_name"]);
-        }
-    }
-}
-
-// 확진자 정보 커스텀오버레이를 보여줍니다.
-function displayPatientInfo (y,x,num,visited_date,place_name) {
-    content = ''
-        + '    <div class="placeinfo pb-0">'
-        + '        <div class="ptitle d-flex justify-content-between align-items-center flex-wrap">'
-        //+ '            <h1 class="m-0 text-center"><strong>' + num + '</strong>번 확진자 동선</h1>'
-        + '            <h1 class="m-0 text-center"><strong>' + place_name + '</strong></h1>'
-        + '        </div>'
-        + '        <div class="w-100 p-2">'
-        + '            <span class="info_content time_at">다녀간 날짜: <strong>' + visited_date + '</strong></span>'
-        // + '            <span class="info_content time_at mt-1">시설 이름: <strong>' + place_name + '</strong></span>'
-        + '        </div>'
-        + '    </div>'
-        + '    <div class="after"></div>'
-    contentNode.innerHTML = content;
-    placeOverlay.setPosition(new kakao.maps.LatLng(y, x));
-    placeOverlay.setMap(map);
-}
-
-*/
-
-
-
-
-/*
-marker_onoff = Array.from({length: cluster_markers.length}, () => 0);
-
-
-kakao.maps.event.addListener(cluster_markers, 'click', function() {
-    var content = '<div class="overlay_info">';
-        content += '    <a href="#"> <strong>'+cluster_markers.getTitle()+'</strong><div class="close" onclick="closeOverlay()" title="닫기"></div></a>';
-        content += '    <div class="desc">';
-        content += '        <span class="address">내용</span>';
-        content += '    </div>';
-        content += '</div>';
-    
-    var overlay = new kakao.maps.CustomOverlay({
-        content: content,
-        map: map,
-        position: cluster_markers.getPosition(),
-        xAnchor: 0.5,
-        yAnchor: 1.3
-    });
-    
-    marker_onoff[i] = 1
-});
-
-//cluster_markers[i]
-*/
-
-
-// 배열 합치기 : a.concat(b)
+/* ---------- toast message 관련 ---------- */
