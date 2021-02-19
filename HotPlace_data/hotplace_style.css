@@ -79,16 +79,13 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 @media screen and (max-width: 750px) {
     .search_box{width:100% !important}
     .new_frame #inner_frame{width:100% !important; height:75% !important;left:0% !important;}
-    
-    .legend img{width:100%;}
-    #menu_wrap{width:100%}
-    .modal-dialog{width:90% !important; padding-top: 10%;}
-    .modal-title{font-size:15px;}
-    .modal-body{font-size:13px;}
-    .feedback{font-size: 12px;}
-    .makerinfo{font-size: 11px;}
-    
 }
+
+@media screen and (min-width: 751px) {
+    span.search_icon:hover {background-color:rgba(0,0,0,0.1);}
+    .button:hover {background: rgba(0,0,0,0.1);}
+}
+
 
 
 
