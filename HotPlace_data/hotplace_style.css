@@ -46,7 +46,7 @@ span.search_icon:hover {background-color:rgba(0,0,0,0.1);}
 .function_button {display: block; width: fit-content; margin:10px 0px;}
 .button {width: 75px; float: left; color: rgba(0,0,0,0.7); border-right: 1px solid #acacac; padding: 8px 0px; text-align: center; font-weight: 600; font-size: 12px; cursor: pointer;}
 .button:hover {background: rgba(0,0,0,0.1);}
-.button span {display: block; margin: 0 auto 3px; width 25px; height: 30px;}
+.button span {display: block; margin: 0 auto 3px; width: 25px; height: 30px;}
 .button .gps {background:url(/image/location_on.png) no-repeat; background-size: 25px;}
 .button .test {background:url(/image/location_off.png) no-repeat; background-size: 25px;}
 
