@@ -32,6 +32,7 @@ body {
 
 /* 검색창 Style */
 .white_block {overflow-y: hidden; background-color: rgba(255,255,255,0.8); z-index: 99; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.3);}
+.white_block * {z-index: 99;}
 .all_wrapper {padding: 20px; font-family: "Malgun Gothic", dotum, '돋움', sans-serif;}
 
 .search_box {position: relative; width: 330px; height: 36px; padding: 2px; }
