@@ -37,6 +37,7 @@ function keysearchPlaces() {
 function search_in_DB(keyword) {
     var is_in_data
     var is_in_alldata=false
+    clusterer.clear();
     
     for (index in store_data) {
         is_in_data = false;
