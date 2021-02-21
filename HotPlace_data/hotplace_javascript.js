@@ -405,10 +405,7 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
     }
 });
 
-// 클릭 시 표시된 오버레이를 모두 닫습니다.
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    for (i in store_data) {close_overlay(i);}
-});
+
 /* ---------- Event 관련 함수 ---------- */
 
 
