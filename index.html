@@ -12,7 +12,7 @@
     <div id="map_id"></div>
     <div class="all_wrapper">
         <div class="search_box white_block">
-            <form class="search_form" onsubmit="return keysearchPlaces()" autocomplete="on">
+            <form class="search_form" onsubmit="keysearchPlaces(); return false;" autocomplete="on">
                 <input type="text" id="keyword" placeholder="검색 기능 일부 구현" autocomplete="off">
                 <span class="search_icon" onclick="keysearchPlaces();"></span>
             </form>
