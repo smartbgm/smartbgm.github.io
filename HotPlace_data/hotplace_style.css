@@ -116,4 +116,3 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 /* Toast message 관련 */
 .toast {position:absolute; top: 24px; left:50%; padding: 2px 12px; transform:translateX(-50%); z-index: -10; color: rgb(255,255,255); background-color: rgba(0,0,0,0.6); opacity: 0.0; font-weight: bold; border-radius: 14px; transition: opacity 1.0s;}
 .toast_on {opacity: 0.8; z-index:110;}
-
