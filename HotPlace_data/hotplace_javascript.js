@@ -21,7 +21,6 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 
 /* ---------- 검색 관련 함수 ---------- */
 function keysearchPlaces() {
-    currCategory = 'keyword'
     var keyword = document.getElementById('keyword').value;
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         toast_message('키워드를 입력해주세요!')
@@ -29,19 +28,18 @@ function keysearchPlaces() {
     }
     
     search_success = search_in_DB(keyword);
-    console.log(search_success);
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     // ps.keywordSearch(keyword, placesSearchCB)
 }
 
 function search_in_DB(keyword) {
-    var is_in_data
-    var is_in_alldata=false
+    var is_in_data;
+    var is_in_alldata=false;
     clusterer.clear();
     
     for (index in store_data) {
         is_in_data = false;
-        /*
+        
         // category 검색
         for (jj in store_data[index].category) {
             if (store_data[index].category[jj].indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
@@ -59,7 +57,7 @@ function search_in_DB(keyword) {
             overlay_set[index].setMap(null);
             marker_onoff[index]=false;
         }
-    }*/
+    }
     
     return is_in_alldata
 }
