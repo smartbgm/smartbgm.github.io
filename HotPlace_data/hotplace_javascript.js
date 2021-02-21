@@ -58,8 +58,8 @@ function search_in_DB(keyword) {
             infowindow_set[index].setMap(null);
             overlay_set[index].setMap(null);
             marker_onoff[index]=false;
-        }*/
-    }
+        }
+    }*/
     
     return is_in_alldata
 }
