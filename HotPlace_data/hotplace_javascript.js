@@ -55,7 +55,6 @@ function search_in_DB(keyword) {
             //overlay_set[index].setMap(map);
             //marker_onoff[index]=false;
         } else {
-            clusterer.removeMarker(cluster_markers[index]);
             infowindow_set[index].setMap(null);
             overlay_set[index].setMap(null);
             marker_onoff[index]=false;
@@ -317,7 +316,7 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
 
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
-            infowindow_set[i].setMap(map);
+            if (cluster_markers[i].getMap()!=null){infowindow_set[i].setMap(map);}
             if (marker_onoff[i]==true && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
                 temp_overlay[i]=false;
