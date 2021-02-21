@@ -1,14 +1,10 @@
-/*
-keysearchPlaces() 를 만들어야합!!!
-GPS 안쓰게 토글도 만들어야지 
-
-*/
 
 var data_path = "/HotPlace_data/HotPlace_DB_filtered(35-10-20).json"
 
 // (37.2804721840256, 127.11467724252604) 기흥구청
 // (37.38279059708606, 127.11882455528438) 분당구청
 
+/* ---------- 카카오맵 생성 ---------- */
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.38279059708606, 127.11882455528438),
@@ -17,15 +13,91 @@ var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-/*
-// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-var mapTypeControl = new kakao.maps.MapTypeControl();
-map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-    */
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
+/* ---------- 카카오맵 생성 ---------- */
 
+
+/* ---------- 검색 관련 함수 ---------- */
+function keysearchPlaces() {
+    currCategory = 'keyword'
+    var keyword = document.getElementById('keyword').value;
+    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+        toast_message('키워드를 입력해주세요!')
+        return false
+    }
+    
+    search_success = search_in_DB(keyword);
+    console.log(search_success);
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    // ps.keywordSearch(keyword, placesSearchCB)
+}
+
+function search_in_DB(keyword) {
+    var is_in_data
+    var is_in_alldata=false
+    
+    for (index in store_data) {
+        is_in_data = false;
+        
+        // category 검색
+        for (jj in store_data[index].category) {
+            if (store_data[index].category[jj].indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
+        }
+        // 상호명 검색
+        if (store_data[index].name.indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
+        
+        if (is_in_data){
+            clusterer.addMarker(cluster_markers[index]);
+            infowindow_set[index].setMap(map);
+            //overlay_set[index].setMap(map);
+            //marker_onoff[index]=false;
+        } else {
+            clusterer.removeMarker(cluster_markers[index]);
+            infowindow_set[index].setMap(null);
+            overlay_set[index].setMap(null);
+            marker_onoff[index]=false;
+        }
+    }
+    
+    return is_in_alldata
+}
+/* ---------- 검색 관련 함수 ---------- */
+
+
+
+/* ---------- DEBUGing용 함수 ---------- */
+function getInfo() {
+    var center = map.getCenter(); 
+    var level = map.getLevel();
+    var mapTypeId = map.getMapTypeId();
+    var bounds = map.getBounds();
+    var swLatLng = bounds.getSouthWest();
+    var neLatLng = bounds.getNorthEast();
+    var boundsStr = bounds.toString();
+    
+    var message = '지도 중심좌표는 위도 ' + center.getLat() + ',\n';
+    message += '경도 ' + center.getLng() + ' 이고\n';
+    message += '지도 레벨은 ' + level + ' 입니다 \n\n';
+    message += '지도 타입은 ' + mapTypeId + ' 이고\n ';
+    message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 \n';
+    message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 입니다';
+    console.log(message)
+}
+
+/*
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng;
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    console.log(message)
+});*/
+/* ---------- DEBUGing용 함수 ---------- */
 
 
 
@@ -88,51 +160,6 @@ function clickGPS() {
 }
 
 /* ---------- GPS 관련 함수 ---------- */
-
-
-function keysearchPlaces() {
-    currCategory = 'keyword'
-    var keyword = document.getElementById('keyword').value;
-    if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        toast_message('키워드를 입력해주세요!')
-        return false
-    }
-    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-    // ps.keywordSearch(keyword, placesSearchCB)
-}
-
-
-/* ---------- DEBUGing용 함수 ---------- */
-function getInfo() {
-    var center = map.getCenter(); 
-    var level = map.getLevel();
-    var mapTypeId = map.getMapTypeId();
-    var bounds = map.getBounds();
-    var swLatLng = bounds.getSouthWest();
-    var neLatLng = bounds.getNorthEast();
-    var boundsStr = bounds.toString();
-    
-    var message = '지도 중심좌표는 위도 ' + center.getLat() + ',\n';
-    message += '경도 ' + center.getLng() + ' 이고\n';
-    message += '지도 레벨은 ' + level + ' 입니다 \n\n';
-    message += '지도 타입은 ' + mapTypeId + ' 이고\n ';
-    message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 \n';
-    message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 입니다';
-    console.log(message)
-}
-
-/*
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    
-    // 클릭한 위도, 경도 정보를 가져옵니다 
-    var latlng = mouseEvent.latLng;
-    
-    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-    message += '경도는 ' + latlng.getLng() + ' 입니다';
-    
-    console.log(message)
-});*/
-/* ---------- DEBUGing용 함수 ---------- */
 
 
 
@@ -264,6 +291,7 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
     if (map.getLevel()>=clusterer.getMinLevel()) {
         for (i in clusterer._clusters){
             if (clusterer._clusters[i]._markers.length != 1){
+                
                 for (j in clusterer._clusters[i]._markers){
                     var index = cluster_markers.indexOf(clusterer._clusters[i]._markers[j])
                     infowindow_set[index].setMap(null);
