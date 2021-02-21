@@ -47,7 +47,8 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 .button:active {background: rgba(0,0,0,0.1);}
 .button span {display: block; margin: 0 auto 3px; width: 25px; height: 30px;}
 .button .gps {background:url(/image/location_on.png) no-repeat; background-size: 25px;}
-.button .test {background:url(/image/location_off.png) no-repeat; background-size: 25px;}
+.button .close_all {background:url(/image/no-message.png) no-repeat; background-size: 25px;}
+.button .init {background:url(/image/no-result.png) no-repeat; background-size: 25px;}
 
 
 
