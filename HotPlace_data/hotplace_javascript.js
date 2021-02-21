@@ -1,5 +1,5 @@
 
-var data_path = "/HotPlace_data/boondang_giheung_filtered2(35-10-20).json"
+var data_path = "/HotPlace_data/HotPlace_DB_filtered(35-10-20).json"
 
 // (37.2804721840256, 127.11467724252604) 기흥구청
 // (37.38279059708606, 127.11882455528438) 분당구청
@@ -28,6 +28,9 @@ function keysearchPlaces() {
     }
     
     search_success = search_in_DB(keyword);
+    if (!search_success) {
+        search_in_kakao(keyword);
+    }
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
     // ps.keywordSearch(keyword, placesSearchCB)
 }
@@ -36,6 +39,7 @@ function search_in_DB(keyword) {
     var is_in_data;
     var is_in_alldata=false;
     clusterer.clear();
+    clear_kakao_result();
     
     for (index in store_data) {
         is_in_data = false;
@@ -50,8 +54,6 @@ function search_in_DB(keyword) {
         if (is_in_data){
             clusterer.addMarker(cluster_markers[index]);
             infowindow_set[index].setMap(map);
-            //overlay_set[index].setMap(map);
-            //marker_onoff[index]=false;
         } else {
             infowindow_set[index].setMap(null);
             overlay_set[index].setMap(null);
@@ -59,9 +61,88 @@ function search_in_DB(keyword) {
         }
     }
     
+    if (is_in_alldata == true){
+        if (map.getLevel()<clusterer.getMinLevel()) {map.setLevel(clusterer.getMinLevel(), {animate:true});};
+        setTimeout(function(){
+            try {map.panTo(clusterer._clusters[0]._center);}
+            catch(err) {toast_message('검색 결과가 화면에 없습니다.<br>화면을 확대해서 확인해보세요.');}
+        },300);
+    }
+    
     return is_in_alldata
 }
+
+function search_in_kakao(keyword) {
+    var places = new kakao.maps.services.Places(map);
+    var options = {useMapCenter:true};
+    places.keywordSearch(keyword,kakao_callback,options);
+}
+
+function kakao_callback(result, status, pagination){
+    switch (status){
+        case kakao.maps.services.Status.OK:
+            toast_message('검색 결과가 존재하지 않아, <br> 카카오맵 검색 결과를 표시합니다.');
+            let bounds = new kakao.maps.LatLngBounds();
+            for (let i=0; i<result.length; i++) {
+                make_kakao_marker(i,result[i]);
+                bounds.extend(new kakao.maps.LatLng(result[i].y, result[i].x));
+            }
+            map.setBounds(bounds);
+            break;
+        case kakao.maps.services.Status.ZERO_RESULT:
+            toast_message('검색 결과가 존재하지 않습니다.');
+            break;
+        case kakao.maps.services.Status.ERROR:
+            toast_message('검색 중 오류가 발생했습니다.');
+            break;
+    }
+}
+
+function init_search(){
+    toast_message('초기화 중입니다...');
+    var keyword = document.getElementById('keyword');
+    keyword.value="";
+    var resettt = function (){search_in_DB('음식점');};
+    clear_kakao_result();
+    setTimeout(resettt,300);
+}
 /* ---------- 검색 관련 함수 ---------- */
+
+
+
+/* ---------- kakao 검색 결과 표시 관련 함수 ---------- */
+var kakao_markers = [];
+var kakao_info = [];
+
+function make_kakao_marker(index,data) {
+    kakao_markers[index] = new kakao.maps.Marker({
+        map:map,
+        position: new kakao.maps.LatLng(data.y, data.x),
+        title:data.place_name
+    });
+    
+    var info_window = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:3.1});
+    
+    var info_content = '<div class="info_window"> (' + data.category_group_name + ')' + data.place_name  + '</div>';
+    
+    info_window.setContent(info_content);
+    info_window.setPosition(new kakao.maps.LatLng(data.y, data.x));
+    info_window.setMap(map)
+    
+    kakao_info[index] = info_window;
+}
+
+function clear_kakao_result(){
+    if (kakao_markers.length > 0){
+        for (i in kakao_markers){
+            kakao_markers[i].setMap(null);
+            kakao_info[i].setMap(null);
+        }
+        kakao_markers = [];
+        kakao_info = [];
+    }
+}
+/* ---------- kakao 검색 결과 표시 관련 함수 ---------- */
 
 
 
@@ -171,16 +252,6 @@ var clusterer = new kakao.maps.MarkerClusterer({
     disableClickZoom: true
 });
 
-// 마커 클러스터러 클릭이벤트
-kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-    var level = map.getLevel()-2;
-    // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
-    map.setLevel(level, {anchor: cluster.getCenter(), animate:true});
-    var cluster_center = new kakao.maps.LatLng(cluster.getCenter().Ma, cluster.getCenter().La);
-    map.setCenter(cluster_center);
-});
-
-
 
 var store_data;
 var cluster_markers = [];
@@ -281,7 +352,17 @@ function make_infowindow(marker,i,data){
     
     infowindow_set[i] = info_window;
 }
+/* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
 
+
+/* ---------- Event 관련 함수 ---------- */
+// 마커 클러스터러 클릭이벤트
+kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+    var level = map.getLevel()-2;
+    map.setLevel(level, {anchor: cluster.getCenter(), animate:true});
+    var cluster_center = new kakao.maps.LatLng(cluster.getCenter().Ma, cluster.getCenter().La);
+    map.setCenter(cluster_center);
+});
 
 // Zoom이 변경될 때 cluster가 작동하면 Overlay, info window를 없앱니다.
 kakao.maps.event.addListener(clusterer, 'clustered', function(){
@@ -310,11 +391,12 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
     } else {for (i in store_data) {temp_overlay[i]=false;}}
 });
 
+// zoom이 변경될 때 info window를 표시합니다.
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
 
     if (map.getLevel()<clusterer.getMinLevel()){
         for (i in store_data){
-            if (cluster_markers[i].getMap()!=null){infowindow_set[i].setMap(map);}
+            if (clusterer._markers.indexOf(cluster_markers[i])!=-1){infowindow_set[i].setMap(map);}
             if (marker_onoff[i]==true && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
                 temp_overlay[i]=false;
@@ -322,7 +404,14 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
         }
     }
 });
-/* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
+
+// 클릭 시 표시된 오버레이를 모두 닫습니다.
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    for (i in store_data) {close_overlay(i);}
+});
+/* ---------- Event 관련 함수 ---------- */
+
+
 
 /* ---------- iframe 요소 ---------- */
 function show_inner_frame(){
