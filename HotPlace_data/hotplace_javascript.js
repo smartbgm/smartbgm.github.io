@@ -27,9 +27,11 @@ function keysearchPlaces() {
         toast_message('키워드를 입력해주세요!')
         return false
     }
+    keyword2 = keyword_change(keyword);
     
     inputbox.blur()
     search_success = search_in_DB(keyword);
+    if (keyword2 != keyword) {search_success = search_in_DB(keyword2);}
     if (!search_success) {
         search_in_kakao(keyword);
     }
@@ -329,7 +331,7 @@ function make_cluster_marker(data) {
     for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                console.log(i)
+                // console.log(i)
                 if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
                 else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
             });
@@ -363,6 +365,12 @@ function make_overlay(i,data) {
 function close_overlay(index) {
     overlay_set[index].setMap(null);
     marker_onoff[index]=false;
+}
+
+function close_all_overlay() {
+    for (i in store_data) {
+        close_overlay(i);
+    }
 }
 
 function make_infowindow(marker,i,data){
