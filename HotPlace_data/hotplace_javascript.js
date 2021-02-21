@@ -1,5 +1,5 @@
 
-var data_path = "/HotPlace_data/HotPlace_DB_filtered(35-10-20).json"
+var data_path = "/HotPlace_data/boondang_giheung_filtered2(35-10-20).json"
 
 // (37.2804721840256, 127.11467724252604) 기흥구청
 // (37.38279059708606, 127.11882455528438) 분당구청
