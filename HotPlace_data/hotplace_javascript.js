@@ -21,12 +21,14 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 
 /* ---------- 검색 관련 함수 ---------- */
 function keysearchPlaces() {
-    var keyword = document.getElementById('keyword').value;
+    var inputbox = document.getElementById('keyword')
+    var keyword = inputbox.value;
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         toast_message('키워드를 입력해주세요!')
         return false
     }
     
+    inputbox.blur()
     search_success = search_in_DB(keyword);
     if (!search_success) {
         search_in_kakao(keyword);
@@ -105,6 +107,30 @@ function init_search(){
     var resettt = function (){search_in_DB('음식점');};
     clear_kakao_result();
     setTimeout(resettt,300);
+}
+
+function keyword_change(keyword){
+    var changed_word;
+    switch (keyword) {
+        case "카레":
+        case "커리":
+            changed_word = "인도음식"
+            break;
+        case "스시":
+            changed_word = "초밥"
+            break;
+        case "타코":
+        case "부리또":
+            changed_word = "브라질"
+            break;
+        case "쌀국수":
+            changed_word = "아시아"
+            break;
+        default:
+            changed_word = keyword;
+            break;
+    }
+    return changed_word
 }
 /* ---------- 검색 관련 함수 ---------- */
 
@@ -405,7 +431,11 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
     }
 });
 
-
+// 클릭 시 표시된 오버레이를 모두 닫습니다.
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+    var inputbox = document.getElementById('keyword')
+    inputbox.blur()
+});
 /* ---------- Event 관련 함수 ---------- */
 
 
