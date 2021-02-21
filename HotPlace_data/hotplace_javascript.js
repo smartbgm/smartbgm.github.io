@@ -41,7 +41,7 @@ function search_in_DB(keyword) {
     
     for (index in store_data) {
         is_in_data = false;
-        
+        /*
         // category 검색
         for (jj in store_data[index].category) {
             if (store_data[index].category[jj].indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
@@ -58,7 +58,7 @@ function search_in_DB(keyword) {
             infowindow_set[index].setMap(null);
             overlay_set[index].setMap(null);
             marker_onoff[index]=false;
-        }
+        }*/
     }
     
     return is_in_alldata
