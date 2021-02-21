@@ -12,23 +12,22 @@
     <div id="map_id"></div>
     <div class="all_wrapper">
         <div class="search_box white_block">
-            <form class="search_form" onsubmit="keysearchPlaces(); return false;" autocomplete="off">
-                <input type="text" id="keyword" placeholder="검색 기능 구현 중">
+            <form class="search_form" onsubmit="return keysearchPlaces()" autocomplete="on">
+                <input type="text" id="keyword" placeholder="검색 기능 구현 중" autocomplete="off">
                 <span class="search_icon" onclick="keysearchPlaces();"></span>
             </form>
         </div>
         
         <div class="function_button white_block">
             <div class="button" onclick="clickGPS()"> <span class="gps"></span> 현재 위치로 </div>
-            <div class="button" onclick="toast_message('테스트 메시지')"> <span class="test"></span> ---- </div>
+            <div class="button" onclick="search_in_DB('음식점')"> <span class="test"></span> 검색 초기화 </div>
         </div>
         
     </div>
     <div class="new_frame" id="new_frame" onclick="close_inner_frame()">
         <iframe src="about:blank" name="inner_iframe" id="inner_frame">iframe이 동작하지 않습니다. <br>최신 크롬브라우저를 이용해 주세요. <br> ios도 아마 제대로 동작 안할껍니다. <br> 그럼 pc에서 사용해주세요 <br> 왜냐하면 저는 아직 그런 능력이 없거든요.</iframe>
     </div>
-    <div class="toast" id="toast">Toast 메시지 창
-    </div>
+    <div class="toast" id="toast">Toast 메시지 창</div>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37ea71dcbe66db7d635ad2ee4c246c8e&libraries=clusterer,services"></script>
     <script type="text/javascript" src="/HotPlace_data/hotplace_javascript.js"></script>
