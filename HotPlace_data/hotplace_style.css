@@ -47,8 +47,12 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 .button:active {background: rgba(0,0,0,0.1);}
 .button span {display: block; margin: 0 auto 3px; width: 25px; height: 30px;}
 .button .gps {background:url(/image/location_on.png) no-repeat; background-size: 25px;}
+.button .filter {background:url(/image/filter.png) no-repeat; background-size: 25px;}
 .button .close_all {background:url(/image/no-message.png) no-repeat; background-size: 25px;}
 .button .init {background:url(/image/no-result.png) no-repeat; background-size: 25px;}
+.filter_detail {display: block; width: 200px;}
+.filter_detail:after {content:'';position: absolute; display: block; left: 100px; top: -12px; width: 22px; height: 12px; transform: rotate(180deg); background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat 0 bottom;}
+.filter_star {width:100px; height:50px;}
 
 
 
@@ -94,7 +98,7 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; background-color:#fff; z-index:2;border:0; box-shadow: 0px 3px 10px #888; min-width:140px;text-align:center;}
 .overlay_info #store_name {width:calc(100% - 37px); height: 37px; padding:6px 4px 6px 4px; border-radius: 6px 0px 0px 0px; background: #d95050; float:left;}
 .overlay_info a { text-decoration: none; color: #fff; font-size: 14px; }
-.overlay_info #overlay_close {color: #fff; width: 37px; height: 37px; background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px; float:left;}
+.overlay_info #overlay_close {color: #fff; width: 37px; height: 37px; background: #d95050 url("/image/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px; float:left;}
 .overlay_info #overlay_close:hover {cursor: pointer;}
 .overlay_info #store_assessment {position: relative; height: 52px; min-width: 140px; overflow: hidden; padding:4px 8px; clear:both;}
 .overlay_info #assessment {position: relative; top: -4px; width: max-content; white-space: nowrap; font-size: 12px; color: #333;}
