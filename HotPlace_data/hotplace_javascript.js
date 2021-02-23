@@ -1,4 +1,11 @@
+/*
 
+필터 적용
+테이블 적용
+DB 중복값 개선
+//t1.daumcdn.net/localimg/localimages/07/2018/img/exsearch-ico-search-hover.png
+
+*/
 var data_path = "/HotPlace_data/HotPlace_DB_filtered(35-10-20).json"
 
 // (37.2804721840256, 127.11467724252604) 기흥구청
@@ -127,6 +134,9 @@ function keyword_change(keyword){
             break;
         case "쌀국수":
             changed_word = "아시아"
+            break;
+        case "파스타":
+            changed_word = "이탈리안"
             break;
         default:
             changed_word = keyword;
@@ -331,7 +341,7 @@ function make_cluster_marker(data) {
     for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                // console.log(i)
+                console.log(i)
                 if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
                 else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
             });
@@ -443,6 +453,14 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     var inputbox = document.getElementById('keyword')
     inputbox.blur()
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng;
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    console.log(message)
 });
 /* ---------- Event 관련 함수 ---------- */
 
