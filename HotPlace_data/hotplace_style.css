@@ -52,10 +52,18 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 #star_sign {background:url(/image/star5.png) no-repeat; background-size: 82px; width: 57.4px; height: 15px; display: inline-block; }
 .range_box {margin: 5px; display:inline-block; transform: rotate(180deg);}
 .number_box {margin: 5px 0px; padding: 3px 0px; display:inline-block; width: 30px; background-color: rgba(0,0,0,0); border-width: 1px; border-color: rgba(255,255,255,0.9); text-align: center;}
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
 #filter_button {width: 75px; height: 25px; margin-bottom: 6px; background-color: #28AEFF; color: #ffffff; cursor: pointer; opacity: 0.8; }
 #filter_button:focus {outline: none;}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+
+input[type=range] {-webkit-appearance: none; height: 8px; background: rgba(0,0,0,0.1); cursor: pointer;
+ border-radius: 0; /* iOS */ transition: background 450ms ease-in; overflow:hidden; }
+input[type=range]:focus {outline: none; }
+input[type=range]::-webkit-slider-thumb{-webkit-appearance: none; width: 14px; height: 14px; background: darkblue; border: 0px solid dodgerblue; border-radius:50%; cursor: pointer; box-shadow: -20vw 0 0 20vw dodgerblue; }
+input[type=range]::-moz-range-thumb{-webkit-appearance: none; width:10px; height:10px; background: #fff; border: 1px solid dodgerblue; border-radius:50%; cursor: pointer; }
+
 
 
 
