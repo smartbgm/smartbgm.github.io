@@ -19,19 +19,11 @@ body {
 
 
 /* 카카오맵 Style */
-#map_id {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100vh;
-    background: url("https://t1.daumcdn.net/mapjsapi/images/bg_tile.png");
-}
-
-
+#map_id {position: absolute; z-index: 0; width: 100%; height: 100vh; background: url("https://t1.daumcdn.net/mapjsapi/images/bg_tile.png"); }
 
 
 /* 검색창 Style */
-.white_block {position: relative; overflow-y: hidden; background-color: rgba(255,255,255,0.8); z-index: 99; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.3);}
+.white_block {position: relative; overflow-y: hidden; background-color: rgba(255,255,255,0.8); z-index: 100; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.3);}
 .all_wrapper {padding: 20px; font-family: "Malgun Gothic", dotum, '돋움', sans-serif;}
 
 .search_box {width: 330px; height: 36px; padding: 2px; }
@@ -50,9 +42,21 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 .button .filter {background:url(/image/filter.png) no-repeat; background-size: 25px;}
 .button .close_all {background:url(/image/no-message.png) no-repeat; background-size: 25px;}
 .button .init {background:url(/image/no-result.png) no-repeat; background-size: 25px;}
-.filter_detail {display: block; width: 200px;}
-.filter_detail:after {content:'';position: absolute; display: block; left: 100px; top: -12px; width: 22px; height: 12px; transform: rotate(180deg); background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat 0 bottom;}
-.filter_star {width:100px; height:50px;}
+
+
+.filter_detail {display: block; width: 230px; overflow-y: initial; margin-top:14px; opacity:0; z-index: -1; transition:opacity 0.5s;}
+.filter_on {z-index:100; opacity:1.0;}
+.filter_detail:after {content:'';position: absolute; display: block; left: 100px; top: -12px; width: 22px; height: 12px; opacity: 0.8; transform: rotate(180deg); background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png") no-repeat;}
+.filter_star {font-size: 14px}
+.star_wrap {width:82px; height:20px; display:inline-block; margin: 6px 0px; }
+#star_sign {background:url(/image/star5.png) no-repeat; background-size: 82px; width: 57.4px; height: 15px; display: inline-block; }
+.range_box {margin: 5px; display:inline-block; transform: rotate(180deg);}
+.number_box {margin: 5px 0px; padding: 3px 0px; display:inline-block; width: 30px; background-color: rgba(0,0,0,0); border-width: 1px; border-color: rgba(255,255,255,0.9); text-align: center;}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+#filter_button {width: 75px; height: 25px; margin-bottom: 6px; background-color: #28AEFF; color: #ffffff; cursor: pointer; opacity: 0.8; }
+#filter_button:focus {outline: none;}
+
 
 
 
@@ -75,10 +79,6 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 
 
 
-/*
-.gps_wrapper{margin:0; padding: 0; position: relative; z-index: 1; width:52px;}
-.gps_wrapper, .gps_wrapper * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-*/
 
 /* 화면 전환 시 - menu_wrap 이외에 나머지는 초기 뜨는 화면 조정 관련 */
 @media screen and (max-width: 750px) {
@@ -98,7 +98,7 @@ span.search_icon:active {background-color:rgba(0,0,0,0.1);}
 .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; background-color:#fff; z-index:2;border:0; box-shadow: 0px 3px 10px #888; min-width:140px;text-align:center;}
 .overlay_info #store_name {width:calc(100% - 37px); height: 37px; padding:6px 4px 6px 4px; border-radius: 6px 0px 0px 0px; background: #d95050; float:left;}
 .overlay_info a { text-decoration: none; color: #fff; font-size: 14px; }
-.overlay_info #overlay_close {color: #fff; width: 37px; height: 37px; background: #d95050 url("/image/overlay_close.png") no-repeat; background-position: center; border-radius: 0px 6px 0px 0px; float:left;}
+.overlay_info #overlay_close {color: #fff; width: 37px; height: 37px; background: #d95050 url(/image/overlay_close.png) no-repeat; background-position: center; border-radius: 0px 6px 0px 0px; float:left;}
 .overlay_info #overlay_close:hover {cursor: pointer;}
 .overlay_info #store_assessment {position: relative; height: 52px; min-width: 140px; overflow: hidden; padding:4px 8px; clear:both;}
 .overlay_info #assessment {position: relative; top: -4px; width: max-content; white-space: nowrap; font-size: 12px; color: #333;}
