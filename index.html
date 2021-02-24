@@ -14,18 +14,36 @@
     <div class="all_wrapper">
         <div class="search_box white_block">
             <form class="search_form" onsubmit="keysearchPlaces(); return false;" autocomplete="off">
-                <input type="text" id="keyword" placeholder="카테고리, 상호명으로 검색하세요">
+                <input type="search" id="keyword" placeholder="카테고리, 상호명으로 검색하세요" onfocus="this.select()">
                 <span class="search_icon" onclick="keysearchPlaces();"></span>
             </form>
         </div>
         
         <div class="function_button white_block">
             <div class="button" onclick="clickGPS()"> <span class="gps"></span> 현재 위치로 </div>
-            <div class="button" onclick=""> <span class="filter"></span> 필터 구현 중 </div>
+            <div class="button" onclick="click_filter()"> <span class="filter"></span> 필터 적용 </div>
             <div class="button" onclick="close_all_overlay()"> <span class="close_all"></span> 설명창 닫기 </div>
-            <div class="button" onclick="init_search()"> <span class="init"></span> 검색 초기화 </div>
+            <div class="button" onclick="clusterer.clear();init_search();"> <span class="init"></span> 검색 초기화 </div>
         </div>
-
+        
+        <div class="filter_detail white_block">
+            <form class="filter_star" oninput=" reply_result.value=parseFloat(reply_number.value); review_result.value=parseFloat(review_number.value);">
+                <span> <div class="star_wrap"><span id="star_sign" name="star_sign"></span></div>
+                (👍:
+                <output name="reply_result" for="reply_number">10</output>) &nbsp 👀 : 
+                <output name="review_result" for="review_number">20</output>
+                </span><br>
+                ⭐<input class="range_box" type="range" id="star_range" min="0" max="1.5" step="0.1" value="1.5"oninput="star_number.value=5.0-star_range.value; star_width();">
+                <input class="number_box" type="number" id="star_number" min="3.5" max="5" step="0.1" value="3.5" pattern="\d*" oninput="star_range.value=5.0-star_number.value; star_width();" onfocus="this.select()"> <br>
+                
+                👍<input class="range_box" type="range" id="reply_range" step="1" oninput="reply_number.value=reply_number.max-reply_range.value">
+                <input class="number_box" type="number" id="reply_number" step="1" pattern="\d*" oninput="reply_range.value=reply_number.max-reply_number.value; filter_number();" onfocus="this.select()"> <br>
+                
+                👀<input class="range_box" type="range" id="review_range" step="1" oninput="review_number.value=review_number.max-review_range.value">
+                <input class="number_box" type="number" id="review_number" step="1" pattern="\d*" oninput="review_range.value=review_number.max-review_number.value; filter_number();" onfocus="this.select()">
+            </form>
+            <button id="filter_button" onclick="apply_filter()"> Apply </button>
+        </div>
     </div>
     <div class="new_frame" id="new_frame" onclick="close_inner_frame()">
         <iframe src="about:blank" name="inner_iframe" id="inner_frame">iframe이 동작하지 않습니다.</iframe>
