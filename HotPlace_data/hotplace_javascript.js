@@ -1,6 +1,6 @@
 /*
+해야할 것
 
-필터 적용
 테이블 적용
 DB 중복값 개선
 //t1.daumcdn.net/localimg/localimages/07/2018/img/exsearch-ico-search-hover.png
@@ -36,8 +36,19 @@ function keysearchPlaces() {
     }
     keyword2 = keyword_change(keyword);
     
+    // 실제 검색 모듈 시작
+    var search_success;
+    searched_data = Array.from({length: store_data.length}, () => false);
     inputbox.blur()
+    clusterer.clear();
+    reply_min = 100;
+    reply_max = 0;
+    review_min = 100;
+    review_max = 0;
+    
+    clear_kakao_result();
     search_success = search_in_DB(keyword);
+    //keyword2로 진행하는 검색은 더 큰범위 검색이기때문에 search_success가 false면 keyword 검색도 false
     if (keyword2 != keyword) {search_success = search_in_DB(keyword2);}
     if (!search_success) {
         search_in_kakao(keyword);
@@ -49,36 +60,34 @@ function keysearchPlaces() {
 function search_in_DB(keyword) {
     var is_in_data;
     var is_in_alldata=false;
-    clusterer.clear();
-    clear_kakao_result();
     
-    for (index in store_data) {
+    for (let index=0; index<store_data.length; index++) {
         is_in_data = false;
         
         // category 검색
         for (jj in store_data[index].category) {
-            if (store_data[index].category[jj].indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
+            if (store_data[index].category[jj].indexOf(keyword)!=-1){
+                is_in_data = true; is_in_alldata=true; searched_data[index]=true;}
         }
         // 상호명 검색
-        if (store_data[index].name.indexOf(keyword)!=-1){is_in_data = true;is_in_alldata=true;}
+        if (store_data[index].name.indexOf(keyword)!=-1){
+            is_in_data = true; is_in_alldata=true; searched_data[index]=true;}
         
         if (is_in_data){
             clusterer.addMarker(cluster_markers[index]);
             infowindow_set[index].setMap(map);
+            // filter min max 값 반환
+            data_minmax(index,store_data[index]);
+            
         } else {
             infowindow_set[index].setMap(null);
             overlay_set[index].setMap(null);
             marker_onoff[index]=false;
         }
     }
+    init_filter();
     
-    if (is_in_alldata == true){
-        if (map.getLevel()<clusterer.getMinLevel()) {map.setLevel(clusterer.getMinLevel(), {animate:true});};
-        setTimeout(function(){
-            try {map.panTo(clusterer._clusters[0]._center);}
-            catch(err) {toast_message('검색 결과가 화면에 없습니다.<br>화면을 확대해서 확인해보세요.');}
-        },300);
-    }
+    if (is_in_alldata == true){display_reset();}
     
     return is_in_alldata
 }
@@ -109,13 +118,33 @@ function kakao_callback(result, status, pagination){
     }
 }
 
+function display_reset(){
+    if (map.getLevel()<clusterer.getMinLevel()) {map.setLevel(clusterer.getMinLevel(), {animate:true});};
+    setTimeout(function(){
+        try {map.panTo(clusterer._clusters[0]._center);}
+        catch(err) {toast_message('검색 결과가 화면에 없습니다.<br>화면을 확대해서 확인해보세요.');}
+    },300);
+}
+
 function init_search(){
     toast_message('초기화 중입니다...');
     var keyword = document.getElementById('keyword');
     keyword.value="";
-    var resettt = function (){search_in_DB('음식점');};
+    reply_min = 100;
+    reply_max = 0;
+    review_min = 100;
+    review_max = 0;
+    searched_data = Array.from({length: store_data.length}, () => true);
+    
+    var resettt = function (){
+        clusterer.addMarkers(cluster_markers);
+        close_all_overlay();
+        for (let i=0; i<store_data.length; i++){data_minmax(i,store_data[i]); infowindow_set[i].setMap(map);}
+        clusterer.redraw();
+        init_filter();
+    };
     clear_kakao_result();
-    setTimeout(resettt,300);
+    setTimeout(resettt,500);
 }
 
 function keyword_change(keyword){
@@ -280,6 +309,100 @@ function clickGPS() {
 
 
 
+/* ---------- Filter 관련 함수 ---------- */
+function init_filter(){
+    var reply_r = document.getElementById('reply_range');
+    var reply_n = document.getElementById('reply_number');
+    var review_r = document.getElementById('review_range');
+    var review_n = document.getElementById('review_number');
+    
+    reply_r.max = reply_max-reply_min;
+    reply_r.min = "0";
+    reply_r.value = reply_max-reply_min;
+    reply_n.max = reply_max;
+    reply_n.min = reply_min;
+    reply_n.value = reply_min;
+    
+    review_r.max = review_max-review_min;
+    review_r.min = "0";
+    review_r.value = review_max-review_min;
+    review_n.max = review_max;
+    review_n.min = review_min;
+    review_n.value = review_min;
+}
+
+function click_filter() {
+    var filter_class = document.getElementsByClassName("filter_detail");
+    filter_class[0].classList.toggle("filter_on");
+}
+
+function apply_filter() {
+    var star_n = document.getElementById('star_number');
+    var reply_n = document.getElementById('reply_number');
+    var review_n = document.getElementById('review_number');
+    
+    if (star_n.value>5.0 || star_n.value<3.5){toast_message('별점 필터값을 수정해주세요'); return false;}
+    if (reply_n.value>reply_max || reply_n.value<reply_min){toast_message('댓글 필터값을 수정해주세요'); return false;}
+    if (review_n.value>review_max || review_n.value<review_min){toast_message('리뷰 필터값을 수정해주세요'); return false;}
+    
+    clusterer.clear();
+    close_all_overlay();
+    var count =0;
+    for (let i=0; i<store_data.length; i++){
+        if ((searched_data[i]==true) && (store_data[i].star>=star_n.value) && (store_data[i].reply>=reply_n.value) && (store_data[i].review>=review_n.value)){
+            clusterer.addMarker(cluster_markers[i]);
+            infowindow_set[i].setMap(map);
+            count++;
+        } else {
+            infowindow_set[i].setMap(null);
+        }
+    }
+    if (count==0){toast_message('결과 값이 없습니다.<br>필터 값을 수정해주세요.')}
+    else {display_reset();}
+}
+
+function star_width(){
+    var star_r = document.getElementById('star_range');
+    var star_n = document.getElementById('star_number');
+    var star_width = document.getElementById('star_sign')
+    
+    var width = 82-star_r.value*16.4
+    star_width.style.width = width+'px';
+    
+    if (star_n.value>5.0){star_n.value=5.0;}
+    if (star_n.value<3.5){star_n.value=3.5;}
+}
+
+function filter_number(){
+    var reply_n = document.getElementById('reply_number');
+    var review_n = document.getElementById('review_number');
+    
+    if (reply_n.value>reply_max){reply_n.value=reply_max;}
+    if (reply_n.value<0){reply_n.value=reply_min;}
+    if (review_n.value>review_max){review_n.value=review_max;}
+    if (review_n.value<0){review_n.value=review_min;}
+}
+
+/* ---------- Filter 관련 함수 ---------- */
+
+
+
+
+/* ---------- close overlay 관련 함수 ---------- */
+function close_overlay(index) {
+    overlay_set[index].setMap(null);
+    marker_onoff[index]=false;
+}
+
+function close_all_overlay() {
+    for (let i=0; i<store_data.length; i++) {
+        close_overlay(i);
+    }
+}
+/* ---------- close overlay 관련 함수 ---------- */
+
+
+
 
 /* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
 // 마커 클러스터러를 생성합니다
@@ -297,6 +420,15 @@ var overlay_set = [];
 var infowindow_set = [];
 var temp_overlay = [];
 var marker_onoff = [];
+var searched_data = [];
+var reply_min = 100;
+var reply_max = 0;
+var review_min = 100;
+var review_max = 0;
+/*
+배열 한번에 초기화
+var arr = Array.from({length: 5}, () => 0);
+*/
 
 // HotPlace 데이터 로드
 loadJSON(data_path,function(data) {
@@ -327,6 +459,11 @@ function loadJSON(path, success, error)
 
 function make_cluster_marker(data) {
     // marker와 overlay 생성
+    reply_min = 100;
+    reply_max = 0;
+    review_min = 100;
+    review_max = 0;
+    
     for (i in data) {
         cluster_markers[i] = new kakao.maps.Marker({
             position : new kakao.maps.LatLng(data[i].lat, data[i].lng),
@@ -335,13 +472,17 @@ function make_cluster_marker(data) {
         (function (i,data){make_overlay(i,data)})(i,data[i]);
         (function (marker,i,data){make_infowindow(marker,i,data)})(cluster_markers[i],i,data[i]);
         marker_onoff[i]=false;
+        searched_data[i]=true;
+        
+        data_minmax(i,data[i]);
     };
+    init_filter();
     
     // overlay 클릭 이벤트 생성
     for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                console.log(i)
+                // console.log(i)
                 if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
                 else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
             });
@@ -361,7 +502,7 @@ function make_overlay(i,data) {
         content += '    <div id="store_assessment">';
         content += '        <span id="assessment">';
         content += '            <span id="tvshow">'+ data.tvshow +'</span>  <span id="type">'+ data.type +'</span> 리뷰 : '+ data.review +'명 <br>';
-        content += '            <span id="star">☆</span> (평가) : <span id="star">'+ data.star +'점</span> ('+ data.reply +')';
+        content += '            <span id="star">⭐</span> (평가) : <span id="star">'+ data.star +'점</span> ('+ data.reply +')';
         content += '        </span>';
         content += '    </div>';
         content += '</div>';
@@ -372,16 +513,6 @@ function make_overlay(i,data) {
     overlay_set[i] = overlay;
 }
 
-function close_overlay(index) {
-    overlay_set[index].setMap(null);
-    marker_onoff[index]=false;
-}
-
-function close_all_overlay() {
-    for (i in store_data) {
-        close_overlay(i);
-    }
-}
 
 function make_infowindow(marker,i,data){
     var info_window = new kakao.maps.CustomOverlay({zIndex:1, xAnchor:0.5, yAnchor:2.1});
@@ -396,7 +527,15 @@ function make_infowindow(marker,i,data){
     
     infowindow_set[i] = info_window;
 }
+
+function data_minmax(i, data){
+    if (data.reply >= reply_max) {reply_max = data.reply; }
+    if (data.reply < reply_min) {reply_min = data.reply; }
+    if (data.review >= review_max) {review_max = data.review; }
+    if (data.review < review_min) {review_min = data.review; }
+}
 /* ---------- Marker Cluster 및 Overlay 관련 함수 ---------- */
+
 
 
 /* ---------- Event 관련 함수 ---------- */
@@ -412,7 +551,7 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 kakao.maps.event.addListener(clusterer, 'clustered', function(){
     
     if (map.getLevel()>=clusterer.getMinLevel()) {
-        for (i in clusterer._clusters){
+        for (let i=0; i<clusterer._clusters.length; i++){
             if (clusterer._clusters[i]._markers.length != 1){
                 
                 for (j in clusterer._clusters[i]._markers){
@@ -439,7 +578,7 @@ kakao.maps.event.addListener(clusterer, 'clustered', function(){
 kakao.maps.event.addListener(map, 'zoom_changed', function(){
 
     if (map.getLevel()<clusterer.getMinLevel()){
-        for (i in store_data){
+        for (let i=0; i<store_data.length; i++){
             if (clusterer._markers.indexOf(cluster_markers[i])!=-1){infowindow_set[i].setMap(map);}
             if (marker_onoff[i]==true && temp_overlay[i]==true){
                 overlay_set[i].setMap(map);
@@ -449,18 +588,26 @@ kakao.maps.event.addListener(map, 'zoom_changed', function(){
     }
 });
 
-// 클릭 시 표시된 오버레이를 모두 닫습니다.
+// 클릭 시 Debug 이벤트
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-    var inputbox = document.getElementById('keyword')
-    inputbox.blur()
+    // input box focus 해제
+    var inputbox = document.getElementById('keyword');
+    var star_n = document.getElementById('star_number');
+    var reply_n = document.getElementById('reply_number');
+    var review_n = document.getElementById('review_number');
+    inputbox.blur();
+    star_n.blur();
+    reply_n.blur();
+    review_n.blur();
     
+    /*
     // 클릭한 위도, 경도 정보를 가져옵니다 
     var latlng = mouseEvent.latLng;
     
     var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
     message += '경도는 ' + latlng.getLng() + ' 입니다';
     
-    console.log(message)
+    console.log(message)*/
 });
 /* ---------- Event 관련 함수 ---------- */
 
@@ -480,6 +627,7 @@ function close_inner_frame(){
     newframe.classList.remove('frame_on');
 }
 /* ---------- iframe 요소 ---------- */
+
 
 
 /* ---------- toast message 관련 ---------- */
