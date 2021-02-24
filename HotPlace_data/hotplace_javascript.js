@@ -359,6 +359,7 @@ function apply_filter() {
     }
     if (count==0){toast_message('결과 값이 없습니다.<br>필터 값을 수정해주세요.')}
     else {display_reset();}
+    click_filter();
 }
 
 function star_width(){
