@@ -2,7 +2,6 @@
 해야할 것
 
 테이블 적용
-DB 중복값 개선
 //t1.daumcdn.net/localimg/localimages/07/2018/img/exsearch-ico-search-hover.png
 
 */
@@ -15,7 +14,8 @@ var data_path = "/HotPlace_data/HotPlace_DB_filtered(35-10-20).json"
 var mapContainer = document.getElementById('map_id'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.38279059708606, 127.11882455528438),
-        level: 4 // 지도의 확대 레벨
+        level: 4,
+        disableDoubleClickZoom: true
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -23,6 +23,8 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMLEFT);
+// Copyright 위치 이동
+map.setCopyrightPosition(kakao.maps.CopyrightPosition.BOTTOMRIGHT, true);
 /* ---------- 카카오맵 생성 ---------- */
 
 
@@ -359,6 +361,7 @@ function apply_filter() {
     }
     if (count==0){toast_message('결과 값이 없습니다.<br>필터 값을 수정해주세요.')}
     else {display_reset();}
+    
     click_filter();
 }
 
@@ -483,7 +486,7 @@ function make_cluster_marker(data) {
     for (i in data) {
         (function (i,marker,overlay) {
             kakao.maps.event.addListener(marker, 'click', function() {
-                // console.log(i)
+                console.log(i)
                 if (marker_onoff[i]==false){overlay.setMap(map); marker_onoff[i]=true;}
                 else if (marker_onoff[i]==true){overlay.setMap(null); marker_onoff[i]=false;}
             });
@@ -609,6 +612,18 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     message += '경도는 ' + latlng.getLng() + ' 입니다';
     
     console.log(message)*/
+});
+
+kakao.maps.event.addListener(map, 'dblclick', function(mouseEvent) {
+    close_all_overlay();
+});
+
+kakao.maps.event.addListener(map, 'rightclick', function(mouseEvent) {
+    var latlng = mouseEvent.latLng;
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    console.log(message);
 });
 /* ---------- Event 관련 함수 ---------- */
 
