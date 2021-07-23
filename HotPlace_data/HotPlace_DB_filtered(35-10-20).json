@@ -1,5 +1,1719 @@
 [
  {
+  "name": "\ub3d9\ud574\ub9c9\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 3.6,
+  "reply": 153,
+  "review": 448,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c479\ubc88\uae38 16",
+  "lat": "37.4616004887716",
+  "lng": "126.370461612573",
+  "url": "https://place.map.kakao.com/m/8947216",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\uac15\ubbfc\ud638\uc744\uc655\ub9ac\ube75\ud310\ub2e4",
+  "type": "\ub514\uc800\ud2b8\uce74\ud398",
+  "star": 3.8,
+  "reply": 14,
+  "review": 99,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\ub85c745\ubc88\uae38 14",
+  "lat": "37.46706618662079",
+  "lng": "126.3722017852504",
+  "url": "https://place.map.kakao.com/m/345276156",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ud14c\ub9c8\uce74\ud398 ",
+   " \ub514\uc800\ud2b8\uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc5b4\ubd80\uc2e0\uad11\ud638 2\ud638\uc810",
+  "type": "\ud68c",
+  "star": 3.8,
+  "reply": 19,
+  "review": 188,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc744\uc655\ub85c40\ubc88\uae38 13",
+  "lat": "37.44914453481812",
+  "lng": "126.37307034079485",
+  "url": "https://place.map.kakao.com/m/1154410307",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\uc5b4\ubd80\uc2e0\uad11\ud638",
+  "type": "\ud68c",
+  "star": 3.8,
+  "reply": 28,
+  "review": 175,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc120\ub140\ubc14\uc704\ub85c55\ubc88\uae38 14",
+  "lat": "37.44184769898253",
+  "lng": "126.37911346076513",
+  "url": "https://place.map.kakao.com/m/24767104",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\ud589\uc6b4\uc870\uac1c\uad6c\uc774\uce7c\uad6d\uc218",
+  "type": "\uc870\uac1c",
+  "star": 4.0,
+  "reply": 31,
+  "review": 50,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 229",
+  "lat": "37.43876164648293",
+  "lng": "126.4080658673134",
+  "url": "https://place.map.kakao.com/m/14867221",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\uc744\uc655\ub9ac\uc9f1\uad6c\ub124",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.0,
+  "reply": 14,
+  "review": 68,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c274\ubc88\uae38 13-1",
+  "lat": "37.4449853252152",
+  "lng": "126.377123505718",
+  "url": "https://place.map.kakao.com/m/388165584",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\uace0\ubaa9\uc815",
+  "type": "\uc308\ubc25",
+  "star": 3.5,
+  "reply": 17,
+  "review": 120,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c172\ubc88\uae38 10",
+  "lat": "37.4486628655926",
+  "lng": "126.388967035636",
+  "url": "https://place.map.kakao.com/m/47880106",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uc308\ubc25"
+  ]
+ },
+ {
+  "name": "\uc591\uc790\uac15",
+  "type": "\uc911\ud654\uc694\ub9ac",
+  "star": 4.0,
+  "reply": 33,
+  "review": 136,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c 494",
+  "lat": "37.4620340158578",
+  "lng": "126.372013279267",
+  "url": "https://place.map.kakao.com/m/9917041",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc911\uc2dd ",
+   " \uc911\ud654\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "\uc744\uc655\ub9ac\uafb8\ub355\uc9d1",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.1,
+  "reply": 44,
+  "review": 160,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c174\ubc88\uae38 44",
+  "lat": "37.4461556748982",
+  "lng": "126.384163166174",
+  "url": "https://place.map.kakao.com/m/720154458",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\ub3d9\ud574\ud68c\uc870\uac1c\uad6c\uc774",
+  "type": "\ud55c\uc2dd",
+  "star": 3.6,
+  "reply": 13,
+  "review": 39,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc744\uc655\ub85c 62",
+  "lat": "37.4492288217235",
+  "lng": "126.371297619217",
+  "url": "https://place.map.kakao.com/m/26533969",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\uc804\ub0a8 \ud68c\uc870\uac1c\uad6c\uc774",
+  "type": "\uc870\uac1c",
+  "star": 4.2,
+  "reply": 18,
+  "review": 39,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc744\uc655\ub85c 62-1",
+  "lat": "37.4493147126184",
+  "lng": "126.371183888894",
+  "url": "https://place.map.kakao.com/m/16881672",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ubd88\ube5b\uc870\uac1c\uc774\uc57c\uae30",
+  "type": "\uc870\uac1c",
+  "star": 3.8,
+  "reply": 14,
+  "review": 60,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 263",
+  "lat": "37.4401256936326",
+  "lng": "126.404106977653",
+  "url": "https://place.map.kakao.com/m/18489372",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ud504\ub791\uc138\uc988\ub2e8\ud325\ube75",
+  "type": "\ub514\uc800\ud2b8\uce74\ud398",
+  "star": 3.8,
+  "reply": 14,
+  "review": 54,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c 170 1\uce35",
+  "lat": "37.448160801538044",
+  "lng": "126.38892704542138",
+  "url": "https://place.map.kakao.com/m/1226947348",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ud14c\ub9c8\uce74\ud398 ",
+   " \ub514\uc800\ud2b8\uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc644\ub3c4\uc870\uac1c\uad6c\uc774",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.6,
+  "reply": 35,
+  "review": 25,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc744\uc655\ub85c 46",
+  "lat": "37.4483495794002",
+  "lng": "126.372679179652",
+  "url": "https://place.map.kakao.com/m/16680454",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\ub9cc\ub9ac\uad81",
+  "type": "\uc911\ud654\uc694\ub9ac",
+  "star": 3.7,
+  "reply": 14,
+  "review": 31,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\uc11c\ub85c 499",
+  "lat": "37.46272862086158",
+  "lng": "126.37115408065883",
+  "url": "https://place.map.kakao.com/m/1133499387",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc911\uc2dd ",
+   " \uc911\ud654\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "\ud574\uc0c1\uad81",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.9,
+  "reply": 11,
+  "review": 28,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 411",
+  "lat": "37.4478450067802",
+  "lng": "126.391985387829",
+  "url": "https://place.map.kakao.com/m/1743489401",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\ubb34\uc758\ub3c4 \uac70\ud574\uc9ec\ubf55\uc21c\ubd80\ub450\ub9db\uc9d1",
+  "type": "\ub450\ubd80\uc804\ubb38\uc810",
+  "star": 4.7,
+  "reply": 372,
+  "review": 1085,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub300\ubb34\uc758\ub85c 281 1\uce35",
+  "lat": "37.39175996864229",
+  "lng": "126.42713607916436",
+  "url": "https://place.map.kakao.com/m/1497730059",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ub450\ubd80\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\ubb34\uc758\ub3c4\ub370\uce68\uc308\ubc25 \ubcf8\uc810",
+  "type": "\uc308\ubc25",
+  "star": 4.3,
+  "reply": 24,
+  "review": 35,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub300\ubb34\uc758\ub85c 309-15",
+  "lat": "37.389077582172256",
+  "lng": "126.42656252456426",
+  "url": "https://place.map.kakao.com/m/21317768",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uc308\ubc25"
+  ]
+ },
+ {
+  "name": "\uc9c0\uae08\uc774\uacf3",
+  "type": "\uce74\ud398",
+  "star": 4.2,
+  "reply": 23,
+  "review": 379,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6b4\ub0a8\ub85c82\ubc88\uae38 40 1\uce35",
+  "lat": "37.4860849906622",
+  "lng": "126.537066636479",
+  "url": "https://place.map.kakao.com/m/1416635483",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc190\ucee4\ud53c\uc5f0\uad6c\uc18c \uc601\uc885\ud558\ub298\ub3c4\uc2dc\uc810",
+  "type": "\ucee4\ud53c\uc804\ubb38\uc810",
+  "star": 4.6,
+  "reply": 17,
+  "review": 41,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud574\ub9de\uc774\uae38 35",
+  "lat": "37.4767085653022",
+  "lng": "126.532792269753",
+  "url": "https://place.map.kakao.com/m/122066889",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ucee4\ud53c\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\ub300\ubc15\uc870\uac1c\uad6c\uc774",
+  "type": "\uc870\uac1c",
+  "star": 4.0,
+  "reply": 72,
+  "review": 76,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6d4\ubbf8\ubb38\ud654\ub85c 71 2\uce35",
+  "lat": "37.4723116654692",
+  "lng": "126.596361116431",
+  "url": "https://place.map.kakao.com/m/14499434",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ubcf4\ubb38\ud56d",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.2,
+  "reply": 16,
+  "review": 64,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6b4\ub0a8\ub85c82\ubc88\uae38 37",
+  "lat": "37.4867702522381",
+  "lng": "126.536275449719",
+  "url": "https://place.map.kakao.com/m/24406084",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\ubaa8\ub9ac",
+  "type": "\ub3c8\uae4c\uc2a4,\uc6b0\ub3d9",
+  "star": 4.4,
+  "reply": 18,
+  "review": 50,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6b4\uc911\ub85c48\ubc88\uae38 66-5",
+  "lat": "37.4872740343895",
+  "lng": "126.53699598023",
+  "url": "https://place.map.kakao.com/m/140870687",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc77c\uc2dd ",
+   " \ub3c8\uae4c\uc2a4,\uc6b0\ub3d9"
+  ]
+ },
+ {
+  "name": "\ud669\ud574\ud574\ubb3c\uce7c\uad6d\uc218 2\ud638\uc810",
+  "type": "\uad6d\uc218",
+  "star": 3.5,
+  "reply": 164,
+  "review": 339,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 37",
+  "lat": "37.42620008575432",
+  "lng": "126.42121361988904",
+  "url": "https://place.map.kakao.com/m/12247540",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\uc2a4\ud0c0\ud30c\uc774\ube0c",
+  "type": "\uce74\ud398",
+  "star": 3.9,
+  "reply": 43,
+  "review": 145,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uacf5\ud56d\uc11c\ub85c 133-1",
+  "lat": "37.439425677891506",
+  "lng": "126.43118431753828",
+  "url": "https://place.map.kakao.com/m/259496423",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ub9c8\uc2dc\uc548\uc5b4\ubd80\uc9d1",
+  "type": "\uc870\uac1c",
+  "star": 3.5,
+  "reply": 57,
+  "review": 236,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 79",
+  "lat": "37.4291209185772",
+  "lng": "126.418231020774",
+  "url": "https://place.map.kakao.com/m/13109661",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\uc7a0\uc9c4\ub3c4\uae3828",
+  "type": "\uce74\ud398",
+  "star": 4.4,
+  "reply": 10,
+  "review": 100,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc7a0\uc9c4\ub3c4\uae38 28 2\uce35",
+  "lat": "37.422297806316",
+  "lng": "126.423236468576",
+  "url": "https://place.map.kakao.com/m/2119929720",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ub9c8\uc2dc\uc548 \uc0dd\uc120\uad6c\uc774\uc804\ubb38\uc810",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 4.0,
+  "reply": 23,
+  "review": 28,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 118",
+  "lat": "37.4326099517669",
+  "lng": "126.41756903300579",
+  "url": "https://place.map.kakao.com/m/26087188",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\uc6b0\ub9ac\ubc00\uc190\uce7c\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 3.8,
+  "reply": 31,
+  "review": 77,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\ub85c21\ubc88\uae38 37",
+  "lat": "37.4288139866554",
+  "lng": "126.42325878771",
+  "url": "https://place.map.kakao.com/m/16087482",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ud560\ub9ac\uc2a4 \uc601\uc885\ub355\uad50\uc810",
+  "type": "\ucee4\ud53c\uc804\ubb38\uc810",
+  "star": 3.6,
+  "reply": 33,
+  "review": 265,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc7a0\uc9c4\ub3c4\uae38 55",
+  "lat": "37.4218337512921",
+  "lng": "126.420465473821",
+  "url": "https://place.map.kakao.com/m/334940351",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ucee4\ud53c\uc804\ubb38\uc810 ",
+   " \ud560\ub9ac\uc2a4"
+  ]
+ },
+ {
+  "name": "\uae30\uc640\uc9d1\ub2f4",
+  "type": "\ud55c\uc815\uc2dd",
+  "star": 3.8,
+  "reply": 43,
+  "review": 38,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\ub85c21\ubc88\uae38 65-17",
+  "lat": "37.4314819719889",
+  "lng": "126.424205469461",
+  "url": "https://place.map.kakao.com/m/17843901",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud55c\uc815\uc2dd"
+  ]
+ },
+ {
+  "name": "\uc120\ud654\ub124\uc870\uac1c\uad6c\uc774",
+  "type": "\uc870\uac1c",
+  "star": 4.8,
+  "reply": 46,
+  "review": 26,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 15",
+  "lat": "37.42477727801885",
+  "lng": "126.42247859362297",
+  "url": "https://place.map.kakao.com/m/9172315",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ub3d9\ud6c4",
+  "type": "\uc911\ud654\uc694\ub9ac",
+  "star": 4.4,
+  "reply": 13,
+  "review": 57,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uacf5\ud56d\ub85c424\ubc88\uae38 72 ibc \ub514\uc624\ube4c 101\ud638",
+  "lat": "37.4384565198497",
+  "lng": "126.462638317113",
+  "url": "https://place.map.kakao.com/m/26442540",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc911\uc2dd ",
+   " \uc911\ud654\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "\uc194\ubc2d\ud68c\uc870\uac1c\uad6c\uc774",
+  "type": "\ud574\uc0b0\ubb3c",
+  "star": 4.4,
+  "reply": 10,
+  "review": 38,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc7a0\uc9c4\ub3c4\uae38 28",
+  "lat": "37.4223157816672",
+  "lng": "126.423227293007",
+  "url": "https://place.map.kakao.com/m/78276134",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd ",
+   " \ud574\uc0b0\ubb3c"
+  ]
+ },
+ {
+  "name": "\ud604\ubbf8\ub124\uc870\uac1c\uad6c\uc774",
+  "type": "\uc870\uac1c",
+  "star": 4.6,
+  "reply": 34,
+  "review": 30,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\ub85c21\ubc88\uae38 69",
+  "lat": "37.431090515436",
+  "lng": "126.425229846661",
+  "url": "https://place.map.kakao.com/m/449656146",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ud30c\ub77c\ub2e4\uc774\uc2a4\uc2dc\ud2f0 \uc628\ub354\ud50c\ub808\uc774\ud2b8",
+  "type": "\ubdd4\ud398",
+  "star": 4.6,
+  "reply": 13,
+  "review": 91,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\ud574\uc548\ub0a8\ub85c321\ubc88\uae38 186 \ud638\ud154\ud30c\ub77c\ub2e4\uc774\uc2a4 1\uce35",
+  "lat": "37.43713432324919",
+  "lng": "126.4564375279343",
+  "url": "https://place.map.kakao.com/m/1867090951",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ubdd4\ud398"
+  ]
+ },
+ {
+  "name": "\uac08\ub9e4\uae30",
+  "type": "\uad6d\uc218",
+  "star": 3.6,
+  "reply": 21,
+  "review": 26,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6a9\uc720\ub85c21\ubc88\uae38 35",
+  "lat": "37.4286552613698",
+  "lng": "126.423228370808",
+  "url": "https://place.map.kakao.com/m/15345040",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ubd80\uc5c9\uc774\ub3c8\uae4c\uc2a4 \ud30c\ub77c\ub2e4\uc774\uc2a4\uc2dc\ud2f0\uc810",
+  "type": "\ub3c8\uae4c\uc2a4,\uc6b0\ub3d9",
+  "star": 3.9,
+  "reply": 12,
+  "review": 71,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\ud574\uc548\ub0a8\ub85c321\ubc88\uae38 186 \ud30c\ub77c\ub2e4\uc774\uc2a4\uc2dc\ud2f0 \ud50c\ub77c\uc790 1\uce35 F101\ud638",
+  "lat": "37.43719799076334",
+  "lng": "126.45578407679054",
+  "url": "https://place.map.kakao.com/m/375755165",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc77c\uc2dd ",
+   " \ub3c8\uae4c\uc2a4,\uc6b0\ub3d9"
+  ]
+ },
+ {
+  "name": "\uc0dd\uc0dd\uc190\uce7c\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 4.3,
+  "reply": 19,
+  "review": 52,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 47 \ub355\uad50\ub3d9\uadfc\ub9b0\uc0dd\ud65c\uc2dc\uc124 1\uce35 105,106\ud638",
+  "lat": "37.4268244906626",
+  "lng": "126.420295951265",
+  "url": "https://place.map.kakao.com/m/190518195",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ubc29\ud0dc\ub9c9\uad6d\uc218 \uc601\uc885\ub9c8\uc2dc\ub780\uc810",
+  "type": "\uad6d\uc218",
+  "star": 3.7,
+  "reply": 13,
+  "review": 29,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ub9c8\uc2dc\ub780\ub85c 40 \ub098\ub3d9 1\uce35",
+  "lat": "37.4265551569432",
+  "lng": "126.421228962854",
+  "url": "https://place.map.kakao.com/m/113352035",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ud30c\ub77c\ub2e4\uc774\uc2a4\uc2dc\ud2f0 \ub77c\uc2a4\uce7c\ub77c",
+  "type": "\uc774\ud0c8\ub9ac\uc548",
+  "star": 3.6,
+  "reply": 10,
+  "review": 20,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\ud574\uc548\ub0a8\ub85c321\ubc88\uae38 186 1\uce35",
+  "lat": "37.43724708316786",
+  "lng": "126.45666269996582",
+  "url": "https://place.map.kakao.com/m/407740678",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd ",
+   " \uc774\ud0c8\ub9ac\uc548"
+  ]
+ },
+ {
+  "name": "\ud638\ud638\ubc00",
+  "type": "\ubd84\uc2dd",
+  "star": 3.5,
+  "reply": 13,
+  "review": 55,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uacf5\ud56d\ub85c 272 \uc81c1\uc5ec\uac1d\ud130\ubbf8\ub110 \uc9c0\ud5581\uce35",
+  "lat": "37.4502593466685",
+  "lng": "126.452360092102",
+  "url": "https://place.map.kakao.com/m/1833225710",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ubd84\uc2dd"
+  ]
+ },
+ {
+  "name": "\ub0a8\ub3c4\ucd94\uc5b4\ud0d5",
+  "type": "\ucd94\uc5b4",
+  "star": 4.4,
+  "reply": 19,
+  "review": 27,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud770\ubc14\uc704\ub85c92\ubc88\uae38 6-16",
+  "lat": "37.4895464723544",
+  "lng": "126.493543907572",
+  "url": "https://place.map.kakao.com/m/559768764",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ucd94\uc5b4"
+  ]
+ },
+ {
+  "name": "\uae40\uc601\ud654\ubd80\ub300\ucc0c\uac1c",
+  "type": "\ucc0c\uac1c,\uc804\uace8",
+  "star": 3.9,
+  "reply": 11,
+  "review": 32,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc2e0\ub3c4\uc2dc\ub0a8\ub85c142\ubc88\uae38 11-6",
+  "lat": "37.4944458304641",
+  "lng": "126.492221711947",
+  "url": "https://place.map.kakao.com/m/702758420",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ucc0c\uac1c,\uc804\uace8"
+  ]
+ },
+ {
+  "name": "\ud654\ub85c\uc0c1\ud68c \uc6b4\uc11c\uc5ed\uc810",
+  "type": "\uc721\ub958,\uace0\uae30",
+  "star": 3.5,
+  "reply": 13,
+  "review": 36,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc2e0\ub3c4\uc2dc\ub0a8\ub85c150\ubc88\uae38 2 \uc774\ub9ac\uc634\ube4c\ub529 2\uce35 202,203\ud638",
+  "lat": "37.4944866848247",
+  "lng": "126.490828287989",
+  "url": "https://place.map.kakao.com/m/2132755466",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uc721\ub958,\uace0\uae30"
+  ]
+ },
+ {
+  "name": "\uc9f1\uad6c\ub124\ub099\uc9c0\uc9d1 \uacf5\ud56d\uc2e0\ub3c4\uc2dc\uc810",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 3.6,
+  "reply": 17,
+  "review": 21,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud587\ub0b4\ub85c\uc548\uae38 18-7",
+  "lat": "37.4953631568417",
+  "lng": "126.499425576493",
+  "url": "https://place.map.kakao.com/m/339987552",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\uaf41\uc2a4\ud0c0\uba4d",
+  "type": "\uc591\uc2dd",
+  "star": 4.4,
+  "reply": 24,
+  "review": 93,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud587\ub0b4\ub85c\uc548\uae38 14-3 1\uce35",
+  "lat": "37.4951482454072",
+  "lng": "126.498888744545",
+  "url": "https://place.map.kakao.com/m/919463126",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd"
+  ]
+ },
+ {
+  "name": "\ub2ed\uacf0\ud0f1\uc774 \ubcf8\uc810",
+  "type": "\ub2ed\uc694\ub9ac",
+  "star": 4.4,
+  "reply": 12,
+  "review": 219,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud654\ub791\ubaa9\ub85c 50-10",
+  "lat": "37.4963124933863",
+  "lng": "126.49892619831",
+  "url": "https://place.map.kakao.com/m/1766354860",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uc721\ub958,\uace0\uae30 ",
+   " \ub2ed\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "\ubca0\uc774\uc0ac\uc774\ub4dc\ubc84\uac70",
+  "type": "\ud584\ubc84\uac70",
+  "star": 4.4,
+  "reply": 23,
+  "review": 22,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud654\ub791\ubaa9\ub85c100\ubc88\uae38 65 103\ud638",
+  "lat": "37.4941425450224",
+  "lng": "126.499057168099",
+  "url": "https://place.map.kakao.com/m/1103474472",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd ",
+   " \ud584\ubc84\uac70"
+  ]
+ },
+ {
+  "name": "\ub354\uc232\ubd88\ubc31",
+  "type": "\uac08\ube44",
+  "star": 3.7,
+  "reply": 19,
+  "review": 46,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud587\ub0b4\ub85c\uc548\uae38 18-4 1\uce35 101\ud638",
+  "lat": "37.4952604072162",
+  "lng": "126.498992029944",
+  "url": "https://place.map.kakao.com/m/315500421",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uc721\ub958,\uace0\uae30 ",
+   " \uac08\ube44"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\ubaa9\ud604",
+  "type": "\uce74\ud398",
+  "star": 4.8,
+  "reply": 19,
+  "review": 34,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud654\ub791\ubaa9\ub85c 50-9",
+  "lat": "37.496531247979476",
+  "lng": "126.49909436158194",
+  "url": "https://place.map.kakao.com/m/2069226549",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ucee4\ud53c\uc815",
+  "type": "\uce74\ud398",
+  "star": 4.3,
+  "reply": 11,
+  "review": 28,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud654\ub791\ubaa9\ub85c 70-8 1\uce35",
+  "lat": "37.49794936727965",
+  "lng": "126.4999330296862",
+  "url": "https://place.map.kakao.com/m/1156773332",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\uc728",
+  "type": "\ub514\uc800\ud2b8\uce74\ud398",
+  "star": 4.1,
+  "reply": 11,
+  "review": 116,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc790\uc5f0\ub300\ub85c 701 2\uce35",
+  "lat": "37.52793446653808",
+  "lng": "126.50527632884295",
+  "url": "https://place.map.kakao.com/m/1161056695",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ud14c\ub9c8\uce74\ud398 ",
+   " \ub514\uc800\ud2b8\uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ud0dc\ud3c9\uc591\ud638",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 3.9,
+  "reply": 13,
+  "review": 84,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc608\ub2e8\ud3ec1\ub85c 2-10 29\ud638",
+  "lat": "37.5318124241784",
+  "lng": "126.502508285283",
+  "url": "https://place.map.kakao.com/m/1996277069",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\ub9cc\uc815\uc218\uc0b0",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 3.8,
+  "reply": 26,
+  "review": 70,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\uc21c\ud658\ub85c339\ubc88\uae38 85",
+  "lat": "37.5115490568118",
+  "lng": "126.543094049422",
+  "url": "https://place.map.kakao.com/m/26154721",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\uc77c\ub4f1\uc9ec\ubf55 \uc601\uc885\ub3c4\uc810",
+  "type": "\uc911\ud654\uc694\ub9ac",
+  "star": 3.9,
+  "reply": 14,
+  "review": 73,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc6b4\uc911\ub85c 28 1\uce35",
+  "lat": "37.4931289911496",
+  "lng": "126.536602511822",
+  "url": "https://place.map.kakao.com/m/1359311159",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc911\uc2dd ",
+   " \uc911\ud654\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "97\ub3c4\uc528 \ud574\ubb3c\uce7c\uad6d\uc218 \uc601\uc885\ubcf8\uc810",
+  "type": "\uad6d\uc218",
+  "star": 3.8,
+  "reply": 45,
+  "review": 182,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\uc9c4\uad11\uc7a5\ub85c 39",
+  "lat": "37.49506655941979",
+  "lng": "126.57857762663534",
+  "url": "https://place.map.kakao.com/m/1634966342",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\uace0\ub798\ud574\ubb3c\uce7c\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 3.5,
+  "reply": 29,
+  "review": 135,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc740\ud558\uc218\ub85c 43 \uc601\uc885\ud504\ub77c\uc790 1\uce35",
+  "lat": "37.4919895224761",
+  "lng": "126.577283225335",
+  "url": "https://place.map.kakao.com/m/1034616733",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\ud3c9\uc0c1\uc778",
+  "type": "\ucee4\ud53c\uc804\ubb38\uc810",
+  "star": 3.9,
+  "reply": 27,
+  "review": 107,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc601\uc885\uc9c4\uad11\uc7a5\ub85c 39",
+  "lat": "37.49504234180314",
+  "lng": "126.57860829467984",
+  "url": "https://place.map.kakao.com/m/1141676686",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ucee4\ud53c\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\uc544\ub77c\uc9ec\ubf55",
+  "type": "\uc911\ud654\uc694\ub9ac",
+  "star": 4.0,
+  "reply": 133,
+  "review": 97,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc624\uc791\ub85c 6-9 1\uce35",
+  "lat": "37.49560699294374",
+  "lng": "126.56461798844917",
+  "url": "https://place.map.kakao.com/m/26330644",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc911\uc2dd ",
+   " \uc911\ud654\uc694\ub9ac"
+  ]
+ },
+ {
+  "name": "\uce74\ud398 \uc5bc\ud2b8",
+  "type": "\uce74\ud398",
+  "star": 3.5,
+  "reply": 15,
+  "review": 160,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc740\ud558\uc218\ub85c 1 4\uce35",
+  "lat": "37.4915015787069",
+  "lng": "126.582462595032",
+  "url": "https://place.map.kakao.com/m/1855715679",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc601\uc885\uc12c",
+  "type": "\ud68c",
+  "star": 3.9,
+  "reply": 42,
+  "review": 72,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc740\ud558\uc218\ub85c 1 2\uce35 206\ud638",
+  "lat": "37.4915015946921",
+  "lng": "126.582467117984",
+  "url": "https://place.map.kakao.com/m/1286909469",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\uc628\ud654 \uc601\uc885\ub3c4\uc810",
+  "type": "\uce74\ud398",
+  "star": 4.3,
+  "reply": 11,
+  "review": 93,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc740\ud558\uc218\ub85c 10 \ub354\ud14c\ub77c\uc2a4\ud504\ub77c\uc790 3\uce35",
+  "lat": "37.4921190750866",
+  "lng": "126.581277503506",
+  "url": "https://place.map.kakao.com/m/159999604",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc870\uc740\uc804\uace8\uce7c\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 4.2,
+  "reply": 15,
+  "review": 35,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ubc31\uc6b4\ub85c 10",
+  "lat": "37.4998973263098",
+  "lng": "126.555365049555",
+  "url": "https://place.map.kakao.com/m/1759942708",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ubd04\uc774\ubcf4\ub9ac\ubc25 \uc601\uc885\uc810",
+  "type": "\ud55c\uc2dd",
+  "star": 4.8,
+  "reply": 10,
+  "review": 58,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc790\uc5f0\ub300\ub85c 47 \uc2a4\ud0c0\ud0c0\uc6cc2 3\uce35",
+  "lat": "37.4887058877518",
+  "lng": "126.558938877048",
+  "url": "https://place.map.kakao.com/m/1012237516",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\ucd5c\uace0\ub2f9\ub3c8\uac00\uc2a4 \uc601\uc885\ud558\ub298\ub3c4\uc2dc\uc810",
+  "type": "\ub3c8\uae4c\uc2a4,\uc6b0\ub3d9",
+  "star": 4.8,
+  "reply": 11,
+  "review": 22,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ud558\ub298\uc911\uc559\ub85c195\ubc88\uae38 14 \uc774\uc740\uc2a4\ud018\uc5b4 205-2\ud638",
+  "lat": "37.4893542357753",
+  "lng": "126.560773626997",
+  "url": "https://place.map.kakao.com/m/1744848613",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc77c\uc2dd ",
+   " \ub3c8\uae4c\uc2a4,\uc6b0\ub3d9"
+  ]
+ },
+ {
+  "name": "\uc9c4\uc9c4\uc218\uc0b0",
+  "type": "\ud68c",
+  "star": 4.3,
+  "reply": 11,
+  "review": 173,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \uc740\ud558\uc218\ub85c 12 \uad6c\uc74d\ubc43\ud130\uc5b4\uc2dc\uc7a5 \ub0b4 1\uce35 8\ud638",
+  "lat": "37.4923577624106",
+  "lng": "126.581001393167",
+  "url": "https://place.map.kakao.com/m/366238140",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\ub69c\ub760\ucfe0\uce58\ub098 \ubbf8\ub2e8\uc2dc\ud2f0\uc810",
+  "type": "\uc591\uc2dd",
+  "star": 4.0,
+  "reply": 11,
+  "review": 140,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uc911\uad6c \ubbf8\ub2e8\ub274\ud0c0\uc6b4\ub85c26\ubc88\uae38 21",
+  "lat": "37.5269446596081",
+  "lng": "126.514925999393",
+  "url": "https://place.map.kakao.com/m/1056824492",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd"
+  ]
+ },
+ {
+  "name": "\uc232\uae38\ub530\ub77c",
+  "type": "\ucee4\ud53c\uc804\ubb38\uc810",
+  "star": 3.9,
+  "reply": 38,
+  "review": 125,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 309-12",
+  "lat": "37.60824123294047",
+  "lng": "126.52077688207685",
+  "url": "https://place.map.kakao.com/m/17481841",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ucee4\ud53c\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\uac15\ub098\ub8e8\uc22f\ubd88\uc7a5\uc5b4",
+  "type": "\uc7a5\uc5b4",
+  "star": 3.9,
+  "reply": 27,
+  "review": 299,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 92-6",
+  "lat": "37.619579530696036",
+  "lng": "126.53391247132735",
+  "url": "https://place.map.kakao.com/m/27602455",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc7a5\uc5b4"
+  ]
+ },
+ {
+  "name": "\ub098\ub77c\ub2c8",
+  "type": "\uce74\ud398",
+  "star": 4.2,
+  "reply": 20,
+  "review": 141,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 156-14",
+  "lat": "37.6155307271906",
+  "lng": "126.53396379517",
+  "url": "https://place.map.kakao.com/m/1969961760",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc564\ub4dc\ud558\ub9ac",
+  "type": "\uce74\ud398",
+  "star": 3.8,
+  "reply": 34,
+  "review": 110,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ub3d9\uac80\uae3863\ubc88\uae38 66",
+  "lat": "37.5910115520433",
+  "lng": "126.519179931562",
+  "url": "https://place.map.kakao.com/m/1169568551",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ube14\ub799\ud384\ucee4\ud53c",
+  "type": "\uce74\ud398",
+  "star": 4.8,
+  "reply": 28,
+  "review": 75,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub3d9\ub85c 40-2 1\uce35",
+  "lat": "37.630847991114514",
+  "lng": "126.53320656708819",
+  "url": "https://place.map.kakao.com/m/1619156745",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc720\ub9ac\uce74\ud398",
+  "type": "\uce74\ud398",
+  "star": 4.8,
+  "reply": 12,
+  "review": 43,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 334 2\uce35",
+  "lat": "37.6081789440185",
+  "lng": "126.51699012884",
+  "url": "https://place.map.kakao.com/m/269874468",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uaf2c\ub9c9\ud55c\uc0c1",
+  "type": "\uc870\uac1c",
+  "star": 4.7,
+  "reply": 10,
+  "review": 68,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 334 1\uce35",
+  "lat": "37.60813005127366",
+  "lng": "126.51693155392807",
+  "url": "https://place.map.kakao.com/m/756752263",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\ub178\uccb4",
+  "type": "\uce74\ud398",
+  "star": 4.8,
+  "reply": 15,
+  "review": 32,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ub3d9\uac80\uae3863\ubc88\uae38 70",
+  "lat": "37.5909183871173",
+  "lng": "126.519311873115",
+  "url": "https://place.map.kakao.com/m/1178596891",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\uc11c\uc628",
+  "type": "\uce74\ud398",
+  "star": 4.8,
+  "reply": 13,
+  "review": 53,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 346",
+  "lat": "37.6069837671832",
+  "lng": "126.516214165084",
+  "url": "https://place.map.kakao.com/m/178691977",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ud1a0\ud06c\ub77c\ud53c",
+  "type": "\uce74\ud398",
+  "star": 3.7,
+  "reply": 51,
+  "review": 632,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c1691\ubc88\uae38 43-12",
+  "lat": "37.5929215430996",
+  "lng": "126.43760888873",
+  "url": "https://place.map.kakao.com/m/1357349826",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uadf8\ub9b0\ud640\ub9ac\ub370\uc774",
+  "type": "\ucee4\ud53c\uc804\ubb38\uc810",
+  "star": 4.2,
+  "reply": 77,
+  "review": 176,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 814",
+  "lat": "37.6096054335317",
+  "lng": "126.480354477967",
+  "url": "https://place.map.kakao.com/m/13095795",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398 ",
+   " \ucee4\ud53c\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\uac15\ud654\uc804\ub4f1\uc0ac\ub0a8\ubb38\uc2dd\ub2f9",
+  "type": "\ud55c\uc2dd",
+  "star": 3.9,
+  "reply": 68,
+  "review": 160,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \uc804\ub4f1\uc0ac\ub85c 37-11",
+  "lat": "37.6309041363311",
+  "lng": "126.490170891888",
+  "url": "https://place.map.kakao.com/m/22043431",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\ubcf4\uad11\ud638 2\ud638\uc810",
+  "type": "\ud68c",
+  "star": 4.2,
+  "reply": 135,
+  "review": 166,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c619\ubc88\uae38 21 1\uce35",
+  "lat": "37.5983937987675",
+  "lng": "126.496186023723",
+  "url": "https://place.map.kakao.com/m/15789234",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\uc9c4\ubcf5\ud638 \ubcf8\uc810",
+  "type": "\ud68c",
+  "star": 3.9,
+  "reply": 82,
+  "review": 45,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c619\ubc88\uae38 24",
+  "lat": "37.5979515010505",
+  "lng": "126.495572999115",
+  "url": "https://place.map.kakao.com/m/15911418",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\ud574\ub0a8\ud68c\uc870\uac1c\uad6c\uc774",
+  "type": "\uc870\uac1c",
+  "star": 4.1,
+  "reply": 133,
+  "review": 148,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1476",
+  "lat": "37.5928703235508",
+  "lng": "126.459034399337",
+  "url": "https://place.map.kakao.com/m/21318384",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ud1a0\uac00",
+  "type": "\ub450\ubd80\uc804\ubb38\uc810",
+  "star": 4.1,
+  "reply": 43,
+  "review": 111,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1912",
+  "lat": "37.608519253501",
+  "lng": "126.417538678538",
+  "url": "https://place.map.kakao.com/m/8114970",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ub450\ubd80\uc804\ubb38\uc810"
+  ]
+ },
+ {
+  "name": "\ub9c8\ub2c8\uc0b0\uc0b0\ucc44",
+  "type": "\ud55c\uc2dd",
+  "star": 3.8,
+  "reply": 96,
+  "review": 150,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1182",
+  "lat": "37.610868347081855",
+  "lng": "126.45629917042744",
+  "url": "https://place.map.kakao.com/m/17858911",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\uce74\ud398\uac08\ub9b4\ub9ac",
+  "type": "\uce74\ud398",
+  "star": 4.3,
+  "reply": 28,
+  "review": 63,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1537",
+  "lat": "37.5937766312368",
+  "lng": "126.452374440357",
+  "url": "https://place.map.kakao.com/m/21229353",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\ud55c\ub098\ub124",
+  "type": "\uac8c,\ub300\uac8c",
+  "star": 4.1,
+  "reply": 41,
+  "review": 60,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 628",
+  "lat": "37.60080756780663",
+  "lng": "126.49598403176353",
+  "url": "https://place.map.kakao.com/m/10006630",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uac8c,\ub300\uac8c"
+  ]
+ },
+ {
+  "name": "\uc11c\ub839",
+  "type": "\uad6d\uc218",
+  "star": 4.7,
+  "reply": 23,
+  "review": 44,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ubcf4\ub9ac\uace0\uac1c\ub85c 96 1\uce35",
+  "lat": "37.62220753503433",
+  "lng": "126.47976610144737",
+  "url": "https://place.map.kakao.com/m/731059759",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\uac15\ud654\uc6d0\uc870\uce7c\uad6d\uc218",
+  "type": "\uad6d\uc218",
+  "star": 4.3,
+  "reply": 18,
+  "review": 30,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1367 1\uce35",
+  "lat": "37.596261527522955",
+  "lng": "126.46216907357177",
+  "url": "https://place.map.kakao.com/m/112992920",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \uad6d\uc218"
+  ]
+ },
+ {
+  "name": "\ubc30\ud130\uc9c0\ub294\uc9d1",
+  "type": "\uc870\uac1c",
+  "star": 3.5,
+  "reply": 14,
+  "review": 74,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1279 1\uce35",
+  "lat": "37.60228982256741",
+  "lng": "126.45799683812153",
+  "url": "https://place.map.kakao.com/m/13080986",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uc870\uac1c"
+  ]
+ },
+ {
+  "name": "\ud540\uc624\ud06c\uce74\ud398",
+  "type": "\uce74\ud398",
+  "star": 4.5,
+  "reply": 11,
+  "review": 58,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \uc7a5\ud765\ub85c 185-9",
+  "lat": "37.6176690842707",
+  "lng": "126.505058410382",
+  "url": "https://place.map.kakao.com/m/847828290",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc0b0\ub9c8\ub8e8\ubb35\ubc25",
+  "type": "\ud55c\uc2dd",
+  "star": 4.5,
+  "reply": 20,
+  "review": 20,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1145",
+  "lat": "37.613922950545565",
+  "lng": "126.45675262547995",
+  "url": "https://place.map.kakao.com/m/10440920",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\ud558\uc580\uaf43\uba54\ubc00",
+  "type": "\ud55c\uc2dd",
+  "star": 3.6,
+  "reply": 16,
+  "review": 35,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1833",
+  "lat": "37.6041262065519",
+  "lng": "126.424172885807",
+  "url": "https://place.map.kakao.com/m/26972533",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\uadf8\ub9b0\ud640\ub9ac\ub370\uc774\ud0a4\uce5c",
+  "type": "\uc591\uc2dd",
+  "star": 4.7,
+  "reply": 10,
+  "review": 44,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 816",
+  "lat": "37.60971144237005",
+  "lng": "126.479875807114",
+  "url": "https://place.map.kakao.com/m/1085132449",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc591\uc2dd"
+  ]
+ },
+ {
+  "name": "\ub9c8\ub2c8\uc628",
+  "type": "\ub3c8\uae4c\uc2a4,\uc6b0\ub3d9",
+  "star": 4.6,
+  "reply": 22,
+  "review": 37,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ubcf4\ub9ac\uace0\uac1c\ub85c89\ubc88\uae38 10",
+  "lat": "37.6231690191099",
+  "lng": "126.478981203489",
+  "url": "https://place.map.kakao.com/m/1043347176",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uc77c\uc2dd ",
+   " \ub3c8\uae4c\uc2a4,\uc6b0\ub3d9"
+  ]
+ },
+ {
+  "name": "\uba39\uace8\ucd0c",
+  "type": "\ud55c\uc2dd",
+  "star": 3.8,
+  "reply": 12,
+  "review": 32,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1147",
+  "lat": "37.6136390933164",
+  "lng": "126.456546291753",
+  "url": "https://place.map.kakao.com/m/16150617",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
+  "name": "\ub9cc\uc120\uaf43\uac8c\ub791\ub099\uc9c0",
+  "type": "\uac8c,\ub300\uac8c",
+  "star": 3.7,
+  "reply": 11,
+  "review": 110,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \uae38\uc0c1\uba74 \ud574\uc548\ub0a8\ub85c 779",
+  "lat": "37.60596502697403",
+  "lng": "126.48025296591402",
+  "url": "https://place.map.kakao.com/m/16339797",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \uac8c,\ub300\uac8c"
+  ]
+ },
+ {
+  "name": "\uac2f\ubc8c\uc2dd\ub2f9",
+  "type": "\ud574\ubb3c,\uc0dd\uc120",
+  "star": 3.5,
+  "reply": 14,
+  "review": 333,
+  "tvshow": "tv\uc18c\uac1c",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 2464",
+  "lat": "37.6229355522906",
+  "lng": "126.380865900639",
+  "url": "https://place.map.kakao.com/m/21228698",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120"
+  ]
+ },
+ {
+  "name": "\uba4d\ub54c\ub9bc",
+  "type": "\uce74\ud398",
+  "star": 3.9,
+  "reply": 19,
+  "review": 127,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 1970-34 1\uce35",
+  "lat": "37.60707790206626",
+  "lng": "126.41032456770388",
+  "url": "https://place.map.kakao.com/m/291731637",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \uce74\ud398"
+  ]
+ },
+ {
+  "name": "\uc7a5\uacf6\ud69f\uc9d1",
+  "type": "\ud68c",
+  "star": 4.1,
+  "reply": 11,
+  "review": 20,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 2532",
+  "lat": "37.62869252741927",
+  "lng": "126.3775658024022",
+  "url": "https://place.map.kakao.com/m/11280626",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd ",
+   " \ud574\ubb3c,\uc0dd\uc120 ",
+   " \ud68c"
+  ]
+ },
+ {
+  "name": "\ud589\ubcf5\ud55c\uc2dc\uace8\ubc25\uc0c1",
+  "type": "\ud55c\uc2dd",
+  "star": 4.1,
+  "reply": 15,
+  "review": 21,
+  "tvshow": "",
+  "address": "\uc778\ucc9c \uac15\ud654\uad70 \ud654\ub3c4\uba74 \ud574\uc548\ub0a8\ub85c 2528",
+  "lat": "37.6283157613152",
+  "lng": "126.378048127549",
+  "url": "https://place.map.kakao.com/m/27297935",
+  "category": [
+   "\uc74c\uc2dd\uc810 ",
+   " \ud55c\uc2dd"
+  ]
+ },
+ {
   "name": "\ud3ec\ub808\uc5e0",
   "type": "\uce74\ud398",
   "star": 3.9,
